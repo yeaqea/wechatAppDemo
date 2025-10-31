@@ -1,5 +1,6 @@
 {
   "compileType": "miniprogram",
+  "miniprogramRoot": "./",
   "libVersion": "3.11.0",
   "packOptions": {
     "ignore": [],
@@ -29,7 +30,8 @@
     "swc": false,
     "disableSWC": true,
     "disableUseStrict": false,
-    "useCompilerPlugins": false
+    "useCompilerPlugins": false,
+    "useNpm": true     
   },
   "condition": {},
   "editorSetting": {

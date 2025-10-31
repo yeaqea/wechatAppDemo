@@ -1,16 +1,20 @@
 {
   "pages": [
+
+
+    "pages/phone-verification/index",
+    "pages/resetpassword/index",
     "pages/home/index",
     "pages/article-list/index",
+    "pages/article-search/index",
     "pages/mistakes/index",
     "pages/rank/index",
-    "pages/me/index",
-    "pages/article-search/index"
+    "pages/me/index"
   ],
   "tabBar": {
     "list": [
     {
-      "pagePath": "pages/home/index",
+      "pagePath": "pages/phone-verification/index",
       "text": "首页",
       "iconPath": "images/主页.png",
       "selectedIconPath": "images/主页 (1).png"
@@ -43,13 +47,12 @@
   },
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "WeiXin",
+    "navigationBarTitleText": "答满分",
     "navigationBarBackgroundColor": "#ffffff"
   },
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
   "usingComponents": {
-    "van-button": "@vant/weapp/button/index"
   }
 }

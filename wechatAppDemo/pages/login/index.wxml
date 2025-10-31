@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="logo">
+    <image src="/images/logo.png" mode="widthFix" />
+  </view>
+
+  <van-field
+    value="{{ account }}"
+    placeholder="请输入账号"
+    border="{{ true }}"
+    bind:change="onAccountChange"
+  />
+
+  <van-field
+    value="{{ password }}"
+    placeholder="请输入密码"
+    type="password"
+    border="{{ true }}"
+    bind:change="onPasswordChange"
+  />
+
+  <van-button
+    type="default"
+    block
+    custom-class="login-btn"
+    bind:tap="handleLogin"
+  >
+    登入
+  </van-button>
+
+  <!-- 忘记密码？保留在登录框下方 -->
+  <view class="forgot" bindtap="gotoForgot">忘记密码？</view>
+
+  <!-- 注册账号放在底部居中 -->
+  <view class="register-link" bindtap="gotoRegister">注册账号</view>
+</view>
