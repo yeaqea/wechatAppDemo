@@ -10,10 +10,10 @@
   "tabBar": {
     "list": [
     {
-      "pagePath": "pages/article-search/index",
-      "text": "搜索",
-      "iconPath": "images/发文章.png",
-      "selectedIconPath": "images/发文章 (1).png"
+      "pagePath": "pages/home/index",
+      "text": "首页",
+      "iconPath": "images/主页.png",
+      "selectedIconPath": "images/主页 (1).png"
     },
     {
       "pagePath": "pages/article-list/index",
