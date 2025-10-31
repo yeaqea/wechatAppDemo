@@ -1,0 +1,42 @@
+<view class="container">
+
+<!-- 返回按钮 + 标题 -->
+<view class="header">
+  <van-icon name="arrow-left" size="24" bindtap="goBack" />
+  <text>文章搜索</text>
+</view>
+
+<!-- 搜索框 -->
+<van-search
+  value="{{ searchValue }}"
+  placeholder="搜索"
+  show-action
+  bind:search="onSearch"
+  bind:cancel="onCancel"
+  bind:change="onSearchChange"
+/>
+
+<!-- 搜索历史区域 -->
+<view class="history-section">
+  <view class="history-header">
+    <text>搜索历史</text>
+    <view class="history-actions">
+      <van-icon name="delete" size="20" bindtap="clearHistory" />
+      <van-icon name="arrow-down" size="20" bindtap="toggleHistory" />
+    </view>
+  </view>
+
+  <view class="history-tags">
+    <van-tag
+      wx:for="{{ searchHistory }}"
+      wx:key="item"
+      type="primary"
+      plain
+      bindtap="onTagClick"
+    >
+      {{ item }}
+    </van-tag>
+  </view>
+</view>
+
+</view>
