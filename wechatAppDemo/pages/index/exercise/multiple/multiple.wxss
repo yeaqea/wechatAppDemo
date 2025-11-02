@@ -1,0 +1,379 @@
+/* pages/index/exercise/multiple/multiple.wxss */
+/* 基础容器样式 */
+.container {
+  min-height: 100vh;
+  background-color: #F5F7FA; /* 默认浅色背景 */
+  padding-bottom: 120rpx;
+}
+
+/* 夜间模式容器背景 */
+.night-container {
+  background-color: black; /* 浅灰色背景 */
+}
+/* 顶部导航栏 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  background-color: #1677FF;
+  color: white;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.question-count {
+  font-size: 28rpx;
+}
+
+.timer {
+  font-size: 24rpx;
+  opacity: 0.9;
+}
+
+.header-right {
+  display: flex;
+  gap: 20rpx;
+}
+
+.icon-btn {
+  width: 80rpx;
+  height: 80rpx;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+}
+
+.icon-img {
+  width: 50rpx;
+  height: 50rpx;
+  border: none;
+}
+
+/* 题目区域 */
+.question-container {
+  padding: 30rpx;
+  background-color: white;
+  margin: 20rpx;
+  border-radius: 16rpx;
+}
+
+.night-mode {
+  background-color: #2D2D2D;
+  color: white;
+}
+
+.question-type {
+  font-size: 26rpx;
+  color: #1677FF;
+  margin-bottom: 20rpx;
+  padding-left: 10rpx;
+  border-left: 4rpx solid #1677FF;
+}
+
+.night-mode .question-type {
+  color: #69b1ff;
+}
+
+.question-content {
+  line-height: 1.6;
+  margin-bottom: 30rpx;
+  color: #333;
+}
+
+.night-mode .question-content {
+  color: #E0E0E0;
+}
+
+/* 选项区域核心样式（单选互斥+多选兼容） */
+.options-container {
+  margin-bottom: 30rpx;
+}
+
+/* 未选中选项样式 */
+.option-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 20rpx;
+  margin-bottom: 16rpx;
+  border-radius: 12rpx;
+  background-color: #FFFFFF; /* 未选中时白色背景 */
+  color: #333333; /* 未选中时深色文字 */
+  transition: all 0.2s ease;
+}
+
+/* 选中选项样式（单选/多选通用） */
+.option-item.selected {
+  background-color: #1677FF; /* 选中时蓝色背景 */
+  color: #FFFFFF; /* 选中时白色文字 */
+}
+
+/* 选项字母标签（未选中） */
+.option-label {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  background-color: #F5F5F5; /* 未选中时浅灰背景 */
+  border: 2rpx solid #DDDDDD;
+  color: #666666; /* 未选中时字母颜色 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* 选中状态的选项标签 */
+.option-item.selected .option-label {
+  background-color: #FFFFFF; /* 选中时白色背景 */
+  color: #1677FF; /* 选中时字母蓝色 */
+  border-color: #1677FF; /* 选中时边框蓝色 */
+}
+
+/* 选中标志（对勾） */
+.selected-marker {
+  position: absolute;
+  right: -4rpx;
+  bottom: -4rpx;
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+  background-color: #FFFFFF; /* 白色圆点 */
+  color: #1677FF; /* 蓝色对勾 */
+  font-size: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 选项文字样式 */
+.option-text {
+  flex: 1;
+  line-height: 1.5;
+}
+
+/* 夜间模式适配 - 未选中选项 */
+.night-mode .option-item {
+  background-color: #3A3A3A; /* 夜间未选中深色背景 */
+  color: #E0E0E0; /* 夜间未选中文字色 */
+}
+
+/* 夜间模式适配 - 选中选项 */
+.night-mode .option-item.selected {
+  background-color: #0A4C97; /* 夜间选中深蓝色背景 */
+  color: #FFFFFF; /* 夜间选中白色文字 */
+}
+
+/* 夜间模式选项标签（未选中） */
+.night-mode .option-label {
+  background-color: #4A4A4A; /* 夜间未选中圆圈背景 */
+  border-color: #666666;
+  color: #CCCCCC; /* 夜间未选中字母色 */
+}
+
+/* 夜间模式选中选项标签 */
+.night-mode .option-item.selected .option-label {
+  background-color: #FFFFFF; /* 夜间选中圆圈白色背景 */
+  color: #0A4C97; /* 夜间选中字母深蓝色 */
+  border-color: #0A4C97;
+}
+
+/* 夜间模式选中标志 */
+.night-mode .selected-marker {
+  background-color: #FFFFFF;
+  color: #0A4C97;
+}
+
+/* 答题反馈区域 */
+.feedback-container {
+  margin-top: 30rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #EEEEEE;
+}
+
+.night-mode .feedback-container {
+  border-top-color: #444;
+}
+
+.feedback-icon {
+  font-size: 36rpx;
+  margin-bottom: 10rpx;
+  font-weight: bold;
+}
+
+.feedback-icon.correct {
+  color: #52C41A;
+}
+
+.feedback-icon.error {
+  color: #F44336;
+}
+
+.feedback-text {
+  font-size: 28rpx;
+  margin-bottom: 16rpx;
+  font-weight: 500;
+}
+
+.feedback-text.correct-text {
+  color: #52C41A;
+}
+
+.feedback-text.error-text {
+  color: #F44336;
+}
+
+.analysis-text {
+  font-size: 24rpx;
+  color: #666666;
+  line-height: 1.6;
+  background-color: #F9F9F9;
+  padding: 16rpx;
+  border-radius: 8rpx;
+}
+
+.night-mode .analysis-text {
+  color: #BBBBBB;
+  background-color: #333333;
+}
+
+.analysis-label {
+  font-weight: 600;
+  color: #333333;
+}
+
+.night-mode .analysis-label {
+  color: #FFFFFF;
+}
+
+/* 底部操作栏 */
+.bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  background-color: #FFFFFF;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.night-bottom {
+  background-color: #2D2D2D;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.3);
+}
+
+.operate-btn {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+  margin: 0 10rpx;
+  border: none;
+  outline: none;
+}
+
+.prev-btn {
+  background-color: #F5F5F5;
+  color: #666666;
+}
+
+.night-mode .prev-btn {
+  background-color: #3A3A3A;
+  color: #BBBBBB;
+}
+
+.submit-btn {
+  background-color: #1E88E5;
+  color: #FFFFFF;
+}
+
+.submit-btn:not(.disabled):active {
+  background-color: #1976D2;
+}
+
+.night-mode .submit-btn {
+  background-color: #3979D3;
+}
+
+.operate-btn.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* 字体大小调整弹窗 */
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.font-modal {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  padding: 30rpx;
+  z-index: 101;
+}
+
+.night-mode .font-modal {
+  background-color: #333;
+  color: white;
+}
+
+.modal-title {
+  font-size: 32rpx;
+  text-align: center;
+  margin-bottom: 30rpx;
+  font-weight: 500;
+}
+
+.font-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.font-btn {
+  width: 100rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  background-color: #F5F5F5;
+  border: none;
+}
+
+.font-btn.active {
+  background-color: #1677FF;
+  color: white;
+}
+
+.night-mode .font-btn {
+  background-color: #444;
+  color: #CCC;
+}
+
+.night-mode .font-btn.active {
+  background-color: #1677FF;
+  color: white;
+}

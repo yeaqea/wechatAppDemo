@@ -98,9 +98,10 @@ Page({
       })
     }
     else if (page ==='mistakes') {
-      wx.navigateTo({
-        url: '/pages/index/mistakes/mistakes'
-      })
+      // wx.navigateTo({
+      //       url: '/pages/index/mistakes/mistakes'
+      // })
+      wx.switchTab({ url: '/pages/index2/index' })
     }
     // 实际开发中可以跳转到对应页面
     // wx.navigateTo({

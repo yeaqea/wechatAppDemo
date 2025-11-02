@@ -1,0 +1,95 @@
+<!-- pages/index/exercise/judge/judge.wxml -->
+<view class="container {{isNightMode ? 'night-container' : ''}}">
+  <!-- 顶部导航栏 -->
+  <view class="header">
+    <view class="header-left">
+      <text class="question-count">第 {{currentIndex + 1}} 题 / 共 {{questionList.length}} 题</text>
+      <text class="timer" wx:if="{{showTimer}}">用时: {{formatTime}}</text>
+    </view>
+    <view class="header-right">
+      <button class="icon-btn" bindtap="toggleFontSize">
+        <image src="/images/font-size.png" mode="widthFix" class="icon-img" />
+      </button>
+      <button class="icon-btn" bindtap="toggleNightMode">
+        <image src="{{isNightMode ? '/images/light.png' : '/images/night.png'}}" mode="widthFix" class="icon-img" />
+      </button>
+      <button class="icon-btn" bindtap="collectQuestion">
+        <image src="{{currentQuestion.isCollected ? '/images/collected.png' : '/images/collect.png'}}" mode="widthFix" class="icon-img" />
+      </button>
+    </view>
+  </view>
+
+  <!-- 题目区域 -->
+  <view class="question-container {{isNightMode ? 'night-mode' : ''}}">
+    <view class="question-type" wx:if="{{currentQuestion.type}}">
+      {{currentQuestion.type === 'single' ? '单选题' : currentQuestion.type === 'multiple' ? '多选题' : '判断题'}}
+    </view>
+    <view class="question-content" style="font-size: {{fontSize}}rpx;">
+      {{currentQuestion.title}}
+    </view>
+    
+    <!-- 选项区域 -->
+    <view class="options-container">
+      <block wx:for="{{currentQuestion.options}}" wx:key="index">
+        <view 
+          class="option-item {{selectedIndex === index ? 'selected' : ''}} {{isNightMode ? 'night-option' : ''}}"
+          bindtap="selectOption"
+          data-index="{{index}}"
+        >
+          <view class="option-label">
+            {{String.fromCharCode(65 + index)}}
+            <!-- 选中标志 -->
+            <view class="selected-marker" wx:if="{{selectedIndex === index}}">✓</view>
+          </view>
+          <view class="option-text" style="font-size: {{fontSize - 10}}rpx;">
+            {{item}}
+          </view>
+        </view>
+      </block>
+    </view>
+    
+    <!-- 答题反馈 -->
+    <view class="feedback-container" wx:if="{{showFeedback}}">
+      <view class="feedback-icon {{isCorrect ? 'correct' : 'error'}}" style="font-size: {{fontSize}}rpx">
+        {{isCorrect ? '✓' : '✗'}}
+      </view>
+      <view class="feedback-text {{isCorrect ? 'correct-text' : 'error-text'}}" style="font-size: {{fontSize}}rpx">
+        {{isCorrect ? '回答正确！' : '回答错误'}}
+      </view>
+      <view class="analysis-text"  wx:if="{{currentQuestion.analysis}}" style="font-size: {{fontSize}}rpx">
+        <text class="analysis-label" style="font-size: {{fontSize}}rpx">解析：</text>{{currentQuestion.analysis}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar {{isNightMode ? 'night-bottom' : ''}}">
+    <button 
+      wx:if="{{currentIndex > 0}}"  
+      class="operate-btn prev-btn {{currentIndex === 0 ? 'disabled' : ''}}"
+      bindtap="prevQuestion"
+      disabled="{{currentIndex === 0 || isSubmitted}}"
+    >
+      上一题
+    </button>
+    <button 
+      class="operate-btn submit-btn {{selectedIndex === -1 ? 'disabled' : ''}}"
+      bindtap="{{isSubmitted ? 'nextQuestion' : 'submitAnswer'}}"
+      disabled="{{selectedIndex === -1 && !isSubmitted}}"
+    >
+      {{isSubmitted ? '下一题' : (currentIndex === questionList.length - 1 ? '交卷' : '提交答案')}}
+    </button>
+  </view>
+
+  <!-- 字体大小调整弹窗 -->
+  <view class="modal-mask" wx:if="{{showFontModal}}" bindtap="closeFontModal"></view>
+  <view class="font-modal" wx:if="{{showFontModal}}">
+    <view class="modal-title">调整字体大小</view>
+    <view class="font-buttons">
+      <button class="font-btn {{fontSize === 28 ? 'active' : ''}}" bindtap="setFontSize" data-size="28">小</button>
+      <button class="font-btn {{fontSize === 32 ? 'active' : ''}}" bindtap="setFontSize" data-size="32">中</button>
+      <button class="font-btn {{fontSize === 36 ? 'active' : ''}}" bindtap="setFontSize" data-size="36">大</button>
+      <button class="font-btn {{fontSize === 40 ? 'active' : ''}}" bindtap="setFontSize" data-size="40">特大</button>
+    </view>
+  </view>
+</view>

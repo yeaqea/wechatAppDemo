@@ -21,7 +21,7 @@
 
         <view class="rank-user">
           <view class="user-avatar">
-            <image src="{{item.avatar || '/images/empty.png'}}" mode="aspectFit" />
+            <image src="{{item.avatar || '/images/mine_icons/default_photo.png'}}" mode="aspectFit" />
           </view>
           <view class="user-name">{{item.name}}</view>
         </view>
