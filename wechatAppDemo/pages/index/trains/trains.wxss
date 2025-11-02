@@ -1,0 +1,201 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 30rpx;
+}
+
+/* 头部样式 */
+.header {
+  text-align: center;
+  margin-bottom: 50rpx;
+  padding-top: 40rpx;
+}
+
+.header-title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 16rpx;
+}
+
+.header-subtitle {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 训练列表样式 */
+.training-list {
+  background: white;
+  border-radius: 20rpx;
+  overflow: hidden;
+  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.1);
+}
+
+.training-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40rpx 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+
+
+.training-item:last-child {
+  border-bottom: none;
+}
+
+.training-item:active {
+  background-color: #f8f9fa;
+}
+
+.item-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+/* 复选框样式 */
+.checkbox {
+  width: 40rpx;
+  height: 40rpx;
+  border: 2rpx solid #ddd;
+  border-radius: 8rpx;
+  margin-right: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.checkbox.checked {
+  background: #1a6dff;
+  border-color: #1a6dff;
+}
+
+.checkmark {
+  color: white;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+/* 内容样式 */
+.item-content {
+  flex: 1;
+}
+
+.item-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.item-info {
+  display: flex;
+  gap: 30rpx;
+}
+
+.info-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 右侧进度和按钮 */
+.item-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16rpx;
+}
+
+.progress-info {
+  text-align: right;
+}
+
+.progress-text {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.progress-bar {
+  width: 200rpx;
+  height: 8rpx;
+  background: #f0f0f0;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+
+.progress-inner {
+  height: 100%;
+  background: linear-gradient(90deg, #1a6dff, #4dabf7);
+  border-radius: 4rpx;
+  transition: width 0.3s ease;
+}
+
+.enter-btn {
+  padding: 12rpx 24rpx;
+  background: #1a6dff;
+  color: white;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+}
+
+/* 底部操作栏 */
+.bottom-actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.select-all {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.select-all-text {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20rpx;
+}
+
+.btn {
+  padding: 20rpx 40rpx;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn.secondary {
+  background: #f8f9fa;
+  color: #666;
+  border: 1rpx solid #e9ecef;
+}
+
+.btn.primary {
+  background: #1a6dff;
+  color: white;
+}
+
+.btn:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}

@@ -1,0 +1,36 @@
+<view class="container">
+  <view class="form-card">
+    <!-- 新的密码 -->
+    <van-field
+      value="{{ password }}"
+      placeholder="请输入新的密码"
+      type="password"
+      border="{{ false }}"
+      custom-class="input-field"
+      bind:change="onPasswordChange"
+    />
+
+    <!-- 确认新的密码 -->
+    <van-field
+      value="{{ confirmPassword }}"
+      placeholder="请再次确认新的密码"
+      type="password"
+      border="{{ false }}"
+      custom-class="input-field"
+      bind:change="onConfirmPasswordChange"
+    />
+
+    <!-- 重置按钮 -->
+    <van-button
+      type="info"
+      block
+      custom-class="submit-btn"
+      bind:tap="handleRegister"
+    >
+      重置密码
+    </van-button>
+  </view> 
+
+  <!-- 返回登录 -->
+  <view class="back-link" bindtap="gotoLogin">返回登录</view>
+</view> 

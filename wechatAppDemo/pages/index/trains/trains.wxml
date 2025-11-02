@@ -1,0 +1,35 @@
+<view class="container">
+  <!-- 头部 -->
+  <view class="header">
+    <view class="header-title">顺序练习</view>
+  </view>
+
+  <!-- 训练项目列表 -->
+  <view class="training-list">
+    <view class="training-item" wx:for="{{trainingList}}" wx:key="id">
+      <view class="checkbox-wrapper">
+        <view class="checkbox {{item.selected ? 'checked' : ''}}" 
+              bindtap="toggleItem" 
+              data-index="{{index}}">
+          <text class="checkmark" wx:if="{{item.selected}}">✓</text>
+        </view>
+      </view>
+      <view class="item-content">
+        <text class="item-title">{{item.title}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-actions">
+    <view class="select-all" bindtap="toggleSelectAll">
+      <view class="checkbox {{allSelected ? 'checked' : ''}}">
+        <text class="checkmark" wx:if="{{allSelected}}">✓</text>
+      </view>
+      <text class="select-all-text">全选</text>
+    </view>
+    <view class="start-btn {{hasSelected ? 'active' : ''}}" bindtap="startTraining">
+      开始练习
+    </view>
+  </view>
+</view>

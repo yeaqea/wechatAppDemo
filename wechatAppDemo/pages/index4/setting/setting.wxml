@@ -1,0 +1,64 @@
+<!-- pages/settings/settings.wxml -->
+<view class="settings-container">
+  <!-- 顶部标题栏 -->
+  <view class="header">
+    <view class="header-title">个人设置</view>
+  </view>
+
+  <!-- 设置表单 -->
+  <view class="settings-form">
+    <!-- 头像设置 -->
+    <view class="form-section">
+      <view class="section-label">头像</view>
+      <view class="avatar-upload" bind:tap="chooseAvatar">
+        <view class="avatar-preview">
+          <image src="{{avatar}}" mode="aspectFill" class="avatar-image"></image>
+          <view class="avatar-edit">
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 姓名设置 -->
+    <view class="form-section">
+      <view class="section-label">姓名</view>
+      <input 
+        class="form-input" 
+        type="text" 
+        placeholder="请输入姓名" 
+        maxlength="20"
+        value="{{username}}"
+        bindinput="onUsernameInput"
+        placeholder-class="placeholder"
+      />
+    </view>
+
+    <!-- 签名设置 -->
+    <view class="form-section">
+      <view class="section-label">个性签名</view>
+      <textarea 
+        class="form-textarea" 
+        placeholder="请输入个性签名" 
+        maxlength="100"
+        value="{{signature}}"
+        bindinput="onSignatureInput"
+        placeholder-class="placeholder"
+        show-confirm-bar="{{false}}"
+      ></textarea>
+      <view class="char-count">{{signature.length}}/100</view>
+    </view>
+  </view>
+
+  <!-- 保存成功提示（只有一个） -->
+  <view wx:if="{{showSuccess}}" class="save-success">
+    <text class="success-text">保存成功</text>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-buttons">
+    <button class="save-btn" bind:tap="saveSettings" disabled="{{!hasChanges || isSaving}}">
+      {{hasChanges ? '保存设置' : '已保存'}}
+    </button>
+    <button class="reset-btn" bind:tap="resetSettings">恢复默认</button>
+  </view>
+</view>

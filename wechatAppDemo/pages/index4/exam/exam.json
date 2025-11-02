@@ -1,0 +1,9 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "我的考试",
+  "navigationBarBackgroundColor": "#1890FF",
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#f7f8fc",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50
+}

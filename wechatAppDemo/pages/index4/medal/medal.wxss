@@ -1,0 +1,196 @@
+/* pages/index4/medal/medal.wxss *//* pages/medal/medal.wxss */
+page {
+  background: #f7f8fc;
+}
+
+.medal-container {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+/* 头部样式 */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 60rpx 40rpx 40rpx;
+  color: white;
+}
+
+.header-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* 统计区域 */
+.stats-section {
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  margin: 20rpx;
+  padding: 40rpx 20rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.05);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 勋章列表 */
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  margin: 40rpx 40rpx 20rpx;
+}
+
+.medal-grid {
+  padding: 0 20rpx;
+}
+
+.medal-item {
+  display: flex;
+  align-items: center;
+  background: white;
+  margin: 20rpx;
+  padding: 30rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.medal-item.earned {
+  border-left: 8rpx solid #52c41a;
+}
+
+.medal-item.locked {
+  border-left: 8rpx solid #d9d9d9;
+  opacity: 0.7;
+}
+
+.medal-item:active {
+  transform: scale(0.98);
+}
+
+/* 勋章图标 */
+.medal-icon {
+  position: relative;
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 30rpx;
+}
+
+.medal-icon image {
+  width: 100%;
+  height: 100%;
+}
+
+.lock-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40rpx;
+  opacity: 0.5;
+}
+
+/* 勋章信息 */
+.medal-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.medal-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.medal-desc {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+  line-height: 1.4;
+}
+
+.medal-date, .medal-hint {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.medal-item.earned .medal-date {
+  color: #52c41a;
+}
+
+/* 勋章状态 */
+.medal-status {
+  margin-left: 20rpx;
+}
+
+.status-earned {
+  background: #52c41a;
+  color: white;
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 20rpx;
+}
+
+.status-locked {
+  background: #f0f0f0;
+  color: #999;
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 20rpx;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 40rpx;
+}
+
+.empty-image {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 40rpx;
+  opacity: 0.5;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 40rpx;
+  text-align: center;
+}
+
+.empty-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 50rpx;
+  padding: 20rpx 60rpx;
+  font-size: 28rpx;
+}
+
+.empty-btn:active {
+  opacity: 0.8;
+}

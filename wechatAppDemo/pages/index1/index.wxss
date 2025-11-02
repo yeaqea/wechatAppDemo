@@ -1,0 +1,117 @@
+/* 搜索栏 */
+.search-bar {
+  padding: 10rpx 30rpx;
+  background-color: #f5f5f5;
+}
+.search-bar input {
+  width: 100%;
+  height: 60rpx;
+  background-color: #fff;
+  border-radius: 30rpx;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}
+
+/* 分类&排序栏 */
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.filter-item {
+  display: flex;
+  align-items: center;
+}
+.arrow-down {
+  width: 20rpx;
+  height: 20rpx;
+  margin-left: 10rpx;
+  border-left: 2rpx solid #999;
+  border-bottom: 2rpx solid #999;
+  transform: rotate(-45deg);
+}
+
+/* 文章列表项 */
+.article-list {
+  padding: 20rpx;
+}
+.article-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.article-info {
+  margin-bottom: 20rpx;
+}
+.article-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+.article-tags {
+  display: flex;
+  margin-bottom: 10rpx;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 24rpx;
+  color: #666;
+  background-color: #f5f5f5;
+  padding: 4rpx 12rpx;
+  border-radius: 16rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+}
+.article-desc {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.5;
+}
+.article-thumbnail {
+  width: 200rpx;
+  height: 140rpx;
+  align-self: flex-end;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+.article-thumbnail image {
+  width: 100%;
+  height: 100%;
+}
+.article-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #999;
+}
+.author-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.author-avatar image {
+  width: 100%;
+  height: 100%;
+}
+.author-info {
+  margin-left: 10rpx;
+}
+.author-name {
+  margin-bottom: 4rpx;
+}
+.publish-time {
+  font-size: 22rpx;
+}
+.view-count {
+  display: flex;
+  align-items: center;
+}
+.article-container {
+  padding: 20rpx;
+  background-color: #ffffff;
+}

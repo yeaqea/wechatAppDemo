@@ -1,0 +1,11 @@
+<view class="container">
+  <!-- 真题标题 -->
+  <view class="paper-title">{{title}}</view>
+  
+  <!-- 年份列表（示例：显示该真题包含的年份） -->
+  <view class="year-list">
+    <view class="year-item" wx:for="{{yearList}}" wx:key="year" bindtap="goToQuestion">
+      {{item.year}}年真题（{{item.questionCount}}题）
+    </view>
+  </view>
+</view>

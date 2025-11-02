@@ -1,0 +1,49 @@
+<view class="search-page">
+  <!-- 搜索框 -->
+  <view class="search-box">
+    <icon type="search" size="18" color="#999" class="search-icon"></icon>
+    <input 
+      type="text" 
+      placeholder="搜索收藏的题目..." 
+      value="{{searchKey}}"
+      bindinput="onSearchInput"
+      focus="{{true}}"
+      class="search-input"
+    ></input>
+    <button 
+      wx:if="{{searchKey.length > 0}}" 
+      bindtap="clearSearch" 
+      class="clear-btn"
+    >
+      <icon type="clear" size="18" color="#999"></icon>
+    </button>
+  </view>
+
+  <!-- 搜索结果 -->
+  <view class="result-area">
+    <!-- 无收藏 -->
+    <view wx:if="{{allFavorites.length === 0}}" class="empty-tip">
+      <icon type="star-o" size="50" color="#ddd"></icon>
+      <text>暂无收藏的题目</text>
+    </view>
+
+    <!-- 无搜索结果 -->
+    <view wx:elif="{{searchKey && filteredList.length === 0}}" class="no-result">
+      <text>未找到包含"{{searchKey}}"的题目</text>
+    </view>
+
+    <!-- 结果列表 -->
+    <view wx:else class="result-list">
+      <view 
+        wx:for="{{filteredList}}" 
+        wx:key="item.id" 
+        class="result-item"
+        bindtap="onResultTap"
+        data-id="{{item.id}}"
+      >
+        <text class="result-question">{{item.question}}</text>
+        <text class="result-time">{{item.addTime}}</text>
+      </view>
+    </view>
+  </view>
+</view>

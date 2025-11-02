@@ -1,0 +1,196 @@
+/* pages/settings/settings.wxss */
+page {
+  background: #f7f8fc;
+}
+
+.settings-container {
+  min-height: 100vh;
+  padding-bottom: 200rpx;
+}
+
+/* 头部样式 */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 60rpx 40rpx 40rpx;
+  color: white;
+}
+
+.header-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* 设置表单 */
+.settings-form {
+  margin: 20rpx;
+  background: white;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.form-section {
+  padding: 40rpx 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.form-section:last-child {
+  border-bottom: none;
+}
+
+.section-label {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+  width: 160rpx;
+  flex-shrink: 0;
+}
+
+/* 头像上传 */
+.avatar-upload {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.avatar-preview {
+  position: relative;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.avatar-preview image {
+  width: 100%;
+  height: 100%;
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8e8e8;
+}
+
+.avatar-text {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.avatar-edit {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40rpx;
+  height: 40rpx;
+  background: rgba(0,0,0,0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-icon {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+/* 输入框样式 */
+.form-input, .form-textarea {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+  text-align: right;
+  min-height: 40rpx;
+}
+
+.form-textarea {
+  height: 120rpx;
+  text-align: left;
+}
+
+.placeholder {
+  color: #999;
+  font-size: 28rpx;
+}
+
+.char-count {
+  position: absolute;
+  right: 30rpx;
+  bottom: 20rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 保存按钮区域 */
+.save-section {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 30rpx 40rpx;
+  border-top: 1rpx solid #f0f0f0;
+  display: flex;
+  gap: 20rpx;
+}
+
+.save-btn, .reset-btn {
+  flex: 1;
+  height: 80rpx;
+  border: none;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.save-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.save-btn[disabled] {
+  background: #f0f0f0;
+  color: #999;
+}
+
+.reset-btn {
+  background: white;
+  color: #666;
+  border: 1rpx solid #e0e0e0;
+}
+
+/* 保存成功提示 */
+.save-success {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.8);
+  padding: 30rpx 40rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+.success-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 16rpx;
+}
+
+.success-text {
+  font-size: 28rpx;
+  color: white;
+}

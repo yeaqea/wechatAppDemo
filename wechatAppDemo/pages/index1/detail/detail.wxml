@@ -1,0 +1,18 @@
+<view class="article-detail">
+  <view class="article-title">{{article.title}}</view>
+  <view class="article-meta">
+    <view class="author-info">
+      <view class="author-avatar">
+        <image src="{{article.authorAvatar}}" mode="cover" />
+      </view>
+      <view class="author-name">{{article.authorName}}</view>
+    </view>
+    <view class="publish-info">
+      <view class="publish-time">{{article.publishTime}}</view>
+      <view class="view-count">{{article.viewCount}}</view>
+    </view>
+  </view>
+  <view class="article-content">
+    {{article.content}}
+  </view>
+</view>

@@ -1,0 +1,88 @@
+<view class="container">
+  <!-- 错题统计区域 -->
+  <view class="error-count">
+    <view class="count-circle">
+      <view class="count-text">
+        <text class="count-number">{{currentCount}}</text>
+        <text class="count-label">我的错题</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 按钮区域（今日/全部错题切换） -->
+  <view class="btn-group">
+    <button class="btn {{activeTab === 'today' ? 'active' : ''}}" bindtap="switchTab" data-tab="today">今日错题</button>
+    <button class="btn {{activeTab === 'all' ? 'active' : ''}}" bindtap="switchTab" data-tab="all">全部错题</button>
+  </view>
+
+  <!-- 切换内容区域 -->
+  <view class="error-content">
+    <!-- 今日错题列表 -->
+    <view wx:if="{{activeTab === 'today'}}">
+      <view class="error-item" wx:for="{{todayErrors}}" wx:key="index">
+        <view class="error-header">
+          <text class="error-type">{{item.type}}</text>
+          <text class="error-time">{{item.time}}</text>
+        </view>
+        <view class="error-question">{{item.question}}</view>
+        <view class="error-answer">
+          <text class="answer-label">你的答案：</text>
+          <text class="your-answer">{{item.yourAnswer}}</text>
+        </view>
+        <view class="error-answer">
+          <text class="answer-label">正确答案：</text>
+          <text class="correct-answer">{{item.correctAnswer}}</text>
+        </view>
+      </view>
+      <!-- 空状态 -->
+      <view class="empty-state" wx:if="{{todayErrors.length === 0}}">
+        <image src="/images/empty.png" class="empty-icon"></image>
+        <text class="empty-text">今日暂无错题~</text>
+      </view>
+    </view>
+
+    <!-- 全部错题列表 -->
+    <view wx:if="{{activeTab === 'all'}}">
+      <view class="error-item" wx:for="{{allErrors}}" wx:key="index">
+        <view class="error-header">
+          <text class="error-type">{{item.type}}</text>
+          <text class="error-time">{{item.time}}</text>
+        </view>
+        <view class="error-question">{{item.question}}</view>
+        <view class="error-answer">
+          <text class="answer-label">你的答案：</text>
+          <text class="your-answer">{{item.yourAnswer}}</text>
+        </view>
+        <view class="error-answer">
+          <text class="answer-label">正确答案：</text>
+          <text class="correct-answer">{{item.correctAnswer}}</text>
+        </view>
+      </view>
+      <!-- 空状态 -->
+      <view class="empty-state" wx:if="{{allErrors.length === 0}}">
+        <image src="/images/empty.png" class="empty-icon"></image>
+        <text class="empty-text">暂无错题记录~</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 按题型练习区域 -->
+  <view class="type-title">按题型练习</view>
+  <view class="type-list">
+    <view class="type-item" bindtap="goChoice">
+      <view class="type-dot"></view>
+      <text class="type-name">选择题</text>
+      <view class="arrow">></view>
+    </view>
+    <view class="type-item" bindtap="goBlank">
+      <view class="type-dot"></view>
+      <text class="type-name">填空题</text>
+      <view class="arrow">></view>
+    </view>
+    <view class="type-item" bindtap="goJudge">
+      <view class="type-dot"></view>
+      <text class="type-name">判断题</text>
+      <view class="arrow">></view>
+    </view>
+  </view>
+</view>

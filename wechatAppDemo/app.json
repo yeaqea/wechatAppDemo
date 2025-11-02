@@ -1,0 +1,80 @@
+{
+  
+  "pages": [
+    "pages/login/login/index",
+    "pages/login/phone-verification/index",
+    "pages/login/register/index",
+    "pages/login/resetpassword/index",
+    "pages/index/index",
+    "pages/index/trains/trains",
+    "pages/index/exercise/exercise",
+    "pages/index/exam/exam",
+    "pages/index/past/past",
+    "pages/index/favorites/favorites",
+    "pages/index/favorites/search/search",
+    "pages/index/mistakes/mistakes",
+    "pages/index/paperDetail/paperDetail" ,
+    "pages/index1/index",
+    "pages/index1/artice/artice",
+    "pages/index1/detail/detail",
+    "pages/index1/list/list",
+    "pages/index1/sousuo/sousuo",
+    "pages/index2/index",
+    "pages/index2/choicePractice/choicePractice",
+    "pages/index2/blankPractice/blankPractice",
+    "pages/index2/judgePractice/judgePractice",
+    "pages/index3/index",
+    "pages/index4/index",
+    "pages/index4/exam/exam",
+    "pages/index4/about/about",
+    "pages/index4/feedback/feedback",
+    "pages/index4/medal/medal",
+    "pages/index4/star/star",
+    "pages/index4/setting/setting"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab_bar_icons/主页.png",
+        "selectedIconPath": "images/tab_bar_icons/主页 (1).png"
+      },
+      {
+        "pagePath": "pages/index1/index",
+        "text": "文章",
+        "iconPath": "images/tab_bar_icons/发文章.png",
+        "selectedIconPath": "images/tab_bar_icons/发文章 (1).png"
+      },
+      {
+        "pagePath": "pages/index2/index",
+        "text": "错题",
+        "iconPath": "images/tab_bar_icons/错题.png",
+        "selectedIconPath": "images/tab_bar_icons/错题 (1).png"
+      },
+      {
+        "pagePath": "pages/index3/index",
+        "text": "排行榜",
+        "iconPath": "images/tab_bar_icons/排行榜.png",
+        "selectedIconPath": "images/tab_bar_icons/排行榜 (1).png"
+      },
+      {
+        "pagePath": "pages/index4/index",
+        "text": "我",
+        "iconPath": "images/tab_bar_icons/我的.png",
+        "selectedIconPath": "images/tab_bar_icons/我的 (1).png"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "答题玩家",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index"
+  }
+}

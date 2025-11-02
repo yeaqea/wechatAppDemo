@@ -1,0 +1,54 @@
+.article-detail {
+  padding: 30rpx;
+}
+.article-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  line-height: 1.5;
+}
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+  color: #666;
+  font-size: 24rpx;
+  border-bottom: 1rpx solid #eee;
+  padding-bottom: 20rpx;
+}
+.author-info {
+  display: flex;
+  align-items: center;
+}
+.author-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10rpx;
+}
+.author-avatar image {
+  width: 100%;
+  height: 100%;
+}
+.author-name {
+  font-weight: 500;
+}
+.publish-info {
+  display: flex;
+  align-items: center;
+}
+.publish-time {
+  margin-right: 20rpx;
+}
+.view-count {
+  display: flex;
+  align-items: center;
+}
+.article-content {
+  font-size: 28rpx;
+  line-height: 1.8;
+  color: #333;
+  white-space: pre-line;
+}

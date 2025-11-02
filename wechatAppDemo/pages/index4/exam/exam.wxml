@@ -1,0 +1,86 @@
+<!--pages/index/exam/exam.wxml-->
+<view class="exam-container">
+  <!-- 标签页 -->
+  <view class="tab-bar">
+    <view 
+      class="tab-item {{activeTab === 'all' ? 'active' : ''}}" 
+      data-tab="all" 
+      bindtap="switchTab"
+    >
+      全部
+    </view>
+    <view 
+      class="tab-item {{activeTab === 'ongoing' ? 'active' : ''}}" 
+      data-tab="ongoing" 
+      bindtap="switchTab"
+    >
+      进行中
+    </view>
+    <view 
+      class="tab-item {{activeTab === 'completed' ? 'active' : ''}}" 
+      data-tab="completed" 
+      bindtap="switchTab"
+    >
+      已完成
+    </view>
+    <view 
+      class="tab-item {{activeTab === 'upcoming' ? 'active' : ''}}" 
+      data-tab="upcoming" 
+      bindtap="switchTab"
+    >
+      未开始
+    </view>
+  </view>
+
+  <!-- 考试列表 -->
+  <view class="exam-list">
+    <block wx:for="{{filteredExamList}}" wx:key="id" wx:for-item="item">
+      <view 
+        class="exam-item {{item.status}}" 
+        data-id="{{item.id}}" 
+        bindtap="viewExamDetail"
+      >
+        <view class="exam-header">
+          <text class="exam-title">{{item.title}}</text>
+          <view class="exam-status {{item.status}}">
+            {{item.status === 'completed' ? '已完成' : item.status === 'ongoing' ? '进行中' : '未开始'}}
+          </view>
+        </view>
+        
+        <view class="exam-info">
+          <view class="info-item">
+            <image class="info-icon" src="/images/mine_icons/exam/时间.svg" mode="widthFix"></image>
+            <text class="info-text">{{item.date}} {{item.time}}</text>
+          </view>
+          <view class="info-item">
+            <image class="info-icon" src="/images/mine_icons/exam/时长.svg" mode="widthFix"></image>
+            <text class="info-text">{{item.duration}}</text>
+          </view>
+        </view>
+
+        <view class="exam-footer">
+          <view class="score-section" wx:if="{{item.status === 'completed'}}">
+            <text class="score-text">成绩：</text>
+            <text class="score-value">{{item.score}}/{{item.totalScore}}</text>
+          </view>
+          <view class="action-section">
+            <view 
+              class="action-btn {{item.status === 'upcoming' ? 'primary' : 'secondary'}}"
+              data-id="{{item.id}}"
+              bindtap="viewExamDetail"
+              catchtap="stopPropagation"
+            >
+              {{item.status === 'completed' ? '查看详情' : item.status === 'ongoing' ? '继续考试' : '考试信息'}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{filteredExamList.length === 0}}">
+    <image class="empty-icon" src="/images/empty.png" mode="widthFix"></image>
+    <text class="empty-text">暂无考试记录</text>
+  </view>
+</view>

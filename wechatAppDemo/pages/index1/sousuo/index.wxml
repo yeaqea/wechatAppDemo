@@ -1,0 +1,35 @@
+<!-- wechatAppDemo/pages/sousuo/index.wxml -->
+<view class="search-container">
+  <!-- 搜索框 -->
+  <view class="search-box">
+    <input 
+      type="text" 
+      placeholder="请输入搜索内容" 
+      class="search-input"
+      focus="{{true}}"
+    />
+    <button class="cancel-btn" bindtap="cancelSearch">取消</button>
+  </view>
+
+  <!-- 搜索历史 -->
+  <view class="history-section" wx:if="{{showHistory}}">
+    <view class="history-title">搜索历史</view>
+    <view class="history-tags">
+      <view class="history-tag" wx:for="{{searchHistory}}" wx:key="*this">
+        {{item}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 搜索结果（默认隐藏） -->
+  <view class="result-section" wx:if="{{showResult}}">
+    <view class="result-title">搜索结果</view>
+    <view class="result-list">
+      <!-- 搜索结果列表项 -->
+      <view class="result-item" wx:for="{{searchResult}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+        <view class="result-title">{{item.title}}</view>
+        <view class="result-desc">{{item.desc}}</view>
+      </view>
+    </view>
+  </view>
+</view>

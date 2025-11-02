@@ -1,0 +1,84 @@
+<view>
+  <!-- pages/profile/profile.wxml -->
+  <view class="profile-container">
+    <!-- 个人资料区域 -->
+    <view class="profile-section">
+      <!-- 左侧文字信息 -->
+      <view class="text-info">
+        <text class="username">{{username}}</text>
+        <view class="signature-container">
+          <text class="signature-text">{{signature || '请输入签名'}}</text>
+        </view>
+      </view>
+      
+      <!-- 右侧头像 -->
+      <view class="avatar-section">
+        <view class="avatar">
+          <!-- 优先显示用户上传的头像 -->
+          <image wx:if="{{avatar && avatar !== '/images/mine_icons/default_photo.png'}}" 
+                 src="{{avatar}}" 
+                 mode="aspectFill" 
+                 class="avatar-image">
+          </image>
+          <!-- 显示默认头像 -->
+          <image wx:elif="{{avatar === '/images/mine_icons/default_photo.png'}}" 
+                 src="/images/mine_icons/default_photo.png" 
+                 mode="aspectFill" 
+                 class="avatar-image">
+          </image>
+          <!-- 如果没有头像数据，显示姓名首字母 -->
+          <view wx:else class="avatar-placeholder">
+            <text class="avatar-text">{{username ? username.charAt(0) : '用'}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="item-bar">
+    <view class="item-item" bind:tap="goToExam">
+      <image class="item-logo" src="/images/mine_icons/考试.svg" mode="widthFix"></image>
+      <view class="item-text">我的考试</view>
+      <image class="item-right" src="/images/mine_icons/进入箭头2小.svg" mode="widthFix"></image>
+    </view>
+
+    <view class="item-item" bind:tap="goToMedal">
+      <image class="item-logo" src="/images/mine_icons/勋章.svg" mode="widthFix"></image>
+      <view class="item-text">我的勋章</view>
+      <image class="item-right" src="/images/mine_icons/进入箭头2小.svg" mode="widthFix"></image>
+    </view>
+
+    <view class="item-item" bind:tap="goToStar">
+      <image class="item-logo" src="/images/mine_icons/收藏.svg" mode="widthFix"></image>
+      <view class="item-text">我的收藏</view>
+      <image class="item-right" src="/images/mine_icons/进入箭头2小.svg" mode="widthFix"></image>
+    </view>
+
+    <view class="item-item" bind:tap="goToFeedback">
+      <image class="item-logo" src="/images/mine_icons/反馈.svg" mode="widthFix"></image>
+      <view class="item-text">隐私策略</view>
+      <image class="item-right" src="/images/mine_icons/进入箭头2小.svg" mode="widthFix"></image>
+    </view>
+
+    <view class="item-item" bind:tap="handleAbout">
+      <image class="item-logo" src="/images/mine_icons/关于.svg" mode="widthFix"></image>
+      <view class="item-text">关于我们</view>
+      <image class="item-right" src="/images/mine_icons/进入箭头2小.svg" mode="widthFix"></image>
+    </view>
+    <view class="item-item" bind:tap="goToSetting">
+      <image class="item-logo" src="/images/mine_icons/设置.svg" mode="widthFix"></image>
+      <view class="item-text">个人设置</view>
+      <image class="item-right" src="/images/mine_icons/进入箭头2小.svg" mode="widthFix"></image>
+    </view>
+  </view>
+  
+  <view wx:if="{{aboutVisible}}" class="about-us-modal" bind:tap="handleCloseAbout">
+    <view class="about-us-panel" catch:tap="handleCatch">
+      <view class="about-us-title">关于我们</view>
+      <view class="about-us-content">
+        我们是一群热爱挑战的"游戏者"，将每一道难题视为一个待解锁的关卡，将每一次答题看作一场刺激的冒险，我们不信"海无涯苦作舟"，只信"知识就是力量，乐趣就是引擎"，我们的使命，就是打造最酷、最好玩的答题体验，让每一个用户都能在知识的赛道上，享受"玩"成赢家的快感！
+      </view>
+      <view bind:tap="handleCloseAbout" class="about-us-button">确 认</view>
+    </view>
+  </view>
+</view>

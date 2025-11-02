@@ -1,0 +1,45 @@
+<!-- index.wxml -->
+<view class="container">
+  <!-- 头部区域 -->
+  <view class="header">
+    <view class="user-info">
+      <view class="user-avatar">
+        <image wx:if="{{avatar}}" src="{{avatar}}" mode="aspectFill"></image>
+        <text wx:else class="avatar-icon">👤</text>
+      </view>
+      <view class="user-name">{{username || '刷题学习者'}}</view>
+    </view>
+    
+    <!-- 数据统计 -->
+    <view class="stats-container">
+      <view class="stat-card">
+        <view class="stat-label">坚持天数</view>
+        <view class="stat-value">{{studyDays}}</view>
+        <view class="stat-rank">排名 {{ranking}} 名</view>
+      </view>
+      
+      <view class="stat-card">
+        <view class="stat-label">刷题正确率</view>
+        <view class="stat-value">{{accuracy}}%</view>
+        <view class="stat-rank">排名 {{ranking}} 名</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 主要内容区域 -->
+  <view class="main-content">
+    <view class="section-title">
+      <text>专项刷题</text>
+    </view>
+    
+    <!-- 功能菜单网格 -->
+    <view class="grid-menu">
+      <view class="menu-item" wx:for="{{menuItems}}" wx:key="id" bindtap="navigateToPage" data-page="{{item.page}}">
+        <view class="menu-icon {{item.iconClass}}">
+          <text class="icon">{{item.icon}}</text>
+        </view>
+        <view class="menu-text">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+</view>

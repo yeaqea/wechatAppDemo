@@ -1,0 +1,29 @@
+<view class="year-list-page">
+  <!-- 导航栏 -->
+  <view class="nav-bar">
+    <view class="back-btn" bindtap="navigateBack">
+      <icon type="left" size="20" color="#333"></icon>
+    </view>
+    <view class="nav-title">{{categoryName}}真题</view>
+  </view>
+
+  <!-- 页面内容 -->
+  <view class="content">
+    <view class="desc">
+      <text>请选择年份开始练习</text>
+    </view>
+
+    <!-- 年份列表 -->
+    <view class="year-grid">
+      <view 
+        wx:for="{{years}}" 
+        wx:key="item" 
+        class="year-item"
+        bindtap="selectYear"
+        data-year="{{item}}"
+      >
+        <text class="year-text">{{item}}年</text>
+      </view>
+    </view>
+  </view>
+</view>

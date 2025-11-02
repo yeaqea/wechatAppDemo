@@ -1,0 +1,47 @@
+<!-- wechatAppDemo/pages/index1/list/list.wxml -->
+<!-- 搜索栏（添加点击事件） -->
+<view class="search-bar" bindtap="goToSearch">
+  <input type="text" placeholder="搜索" readonly />
+</view>
+
+<!-- 分类&排序栏 -->
+<view class="filter-bar">
+  <view class="filter-item">
+    分类
+    <view class="arrow-down"></view>
+  </view>
+  <view class="filter-item">
+    排序
+    <view class="arrow-down"></view>
+  </view>
+</view>
+
+<!-- 文章列表：点击跳转详情页 -->
+<view class="article-list">
+  <block wx:for="{{articles}}" wx:key="uniqueId">
+    <view class="article-item" bindtap="goToDetail" data-id="{{item.id}}">
+      <view class="article-info">
+        <view class="article-title">{{item.title}}</view>
+        <view class="article-tags">
+          <block wx:for="{{item.tags}}" wx:key="*this">
+            <view class="tag">{{item}}</view>
+          </block>
+        </view>
+        <view class="article-desc">{{item.desc}}</view>
+      </view>
+      <view class="article-thumbnail" wx:if="{{item.thumbnail}}">
+        <image src="{{item.thumbnail}}" mode="aspectFill" />
+      </view>
+      <view class="article-meta">
+        <view class="author-avatar">
+          <image src="{{item.authorAvatar}}" mode="cover" />
+        </view>
+        <view class="author-info">
+          <view class="author-name">{{item.authorName}}</view>
+          <view class="publish-time">{{item.publishTime}}</view>
+        </view>
+        <view class="view-count">{{item.viewCount}}</view>
+      </view>
+    </view>
+  </block>
+</view>

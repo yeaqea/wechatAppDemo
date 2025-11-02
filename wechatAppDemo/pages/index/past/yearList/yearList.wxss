@@ -1,0 +1,72 @@
+/* 页面容器 */
+.year-list-page {
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+
+/* 导航栏 */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  background-color: #fff;
+  padding: 0 15px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.back-btn {
+  width: 30px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-title {
+  flex: 1;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* 页面内容 */
+.content {
+  padding: 30rpx 20rpx;
+}
+
+/* 描述文本 */
+.desc {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+/* 年份网格 */
+.year-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+}
+
+/* 年份项 */
+.year-item {
+  background-color: #fff;
+  border-radius: 12rpx;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2rpx 5rpx rgba(0, 0, 0, 0.03);
+  transition: all 0.2s;
+}
+
+.year-item:active {
+  background-color: #f5f5f5;
+}
+
+.year-text {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+}

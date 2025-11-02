@@ -1,0 +1,61 @@
+<view class="container">
+  <!-- 头部时间 -->
+  <view class="header">
+    <view class="time">{{currentTime}}</view>
+  </view>
+
+  <!-- 试题区域 -->
+  <view class="exam-content">
+    <view class="section-title">模拟试题</view>
+    
+    <!-- 题目 -->
+    <view class="question-section">
+      <view class="question-text">{{currentQuestion.index}}/{{totalQuestions}} {{currentQuestion.content}}</view>
+      
+      <!-- 选项列表 -->
+      <view class="options-list">
+        <view class="option-item {{option.selected ? 'selected' : ''}} {{option.correct ? 'correct' : ''}} {{option.wrong ? 'wrong' : ''}}"
+              wx:for="{{currentQuestion.options}}" 
+              wx:key="value"
+              bindtap="selectOption"
+              data-option="{{item}}">
+          <view class="option-label">{{item.value}}</view>
+          <view class="option-text">{{item.text}}</view>
+          <view class="option-status" wx:if="{{option.correct || option.wrong}}">
+            {{option.correct ? '✓' : '✗'}}
+          </view>
+        </view>
+      </view>
+
+      <!-- 添加收藏按钮 -->
+      <view class="favorite-btn {{item.favorited ? 'favorited' : ''}}" 
+        bindtap="toggleFavorite" 
+        data-index="{{index}}">
+        <text class="favorite-icon">{{item.favorited ? '★' : '☆'}}</text>
+      </view>
+    </view>
+
+    <!-- 解析区域 -->
+    <view class="analysis-section" wx:if="{{showAnalysis}}">
+      <view class="analysis-title">解析</view>
+      <view class="analysis-content">{{currentQuestion.analysis}}</view>
+    </view>
+  </view>
+
+  <!-- 底部导航 -->
+  <view class="bottom-nav">
+    <view class="nav-btn prev-btn {{currentQuestion.index === 1 ? 'disabled' : ''}}" 
+          bindtap="prevQuestion">
+      上一题
+    </view>
+    
+    <view class="progress">
+      <text class="progress-text">{{currentQuestion.index}}/{{totalQuestions}}</text>
+    </view>
+    
+    <view class="nav-btn next-btn {{currentQuestion.index === totalQuestions ? 'disabled' : ''}}" 
+          bindtap="nextQuestion">
+      下一题
+    </view>
+  </view>
+</view>

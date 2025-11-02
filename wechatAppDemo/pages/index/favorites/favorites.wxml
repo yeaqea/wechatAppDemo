@@ -1,0 +1,32 @@
+<view class="container">
+  <!-- 导航栏 -->
+  <view class="nav-bar">
+    <view class="back-btn" bindtap="navigateBack">
+      <icon type="left" size="20" color="#333"></icon>
+    </view>
+    <view class="nav-title">我的收藏</view>
+  </view>
+
+  <!-- 搜索栏（点击跳转搜索页） -->
+  <view class="search-bar" bindtap="goToSearchPage">
+    <icon class="search-icon" type="search" size="16"></icon>
+    <text class="search-placeholder">搜索收藏题目...</text>
+  </view>
+
+  <!-- 收藏列表 -->
+  <view class="favorites-list">
+    <!-- 空状态 -->
+    <view wx:if="{{favoritesList.length === 0}}" class="empty-state">
+      <icon type="star-o" size="50" color="#ddd"></icon>
+      <text class="empty-text">暂无收藏题目</text>
+    </view>
+
+    <!-- 收藏项（修复标签格式：属性写在同一行，无非法字符） -->
+    <view wx:else>
+      <view wx:for="{{favoritesList}}" wx:key="id" class="favorite-item">
+        <view class="question-content">{{item.question}}</view>
+        <view class="add-time">{{item.addTime}}</view>
+      </view>
+    </view>
+  </view>
+</view>

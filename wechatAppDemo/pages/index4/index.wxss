@@ -1,0 +1,189 @@
+page {
+  background: #f7f8fc;
+}
+
+/* pages/profile/profile.wxss */
+.profile-container {
+  width: 100vw;
+  height: 30vh;
+  background: #FFFFFF;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.profile-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 686rpx;
+  height: 160rpx;
+  margin-bottom: 30px;
+}
+
+/* 左侧文字信息 */
+.text-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.username {
+  font-size: 48rpx;
+  font-weight: 600;
+  color: #000000;
+  line-height: 1.2;
+}
+
+.signature-container {
+  position: relative;
+  width: 400rpx;
+  height: 80rpx;
+  background: #FFFFFF;
+  border: 2rpx solid #E0E0E0;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+}
+
+.signature-text {
+  font-size: 28rpx;
+  color: #000000;
+  width: 100%;
+}
+
+/* 右侧头像 */
+.avatar-section {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-text {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+.item-bar {
+  margin: 40rpx;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-item {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  padding: 0 30rpx;
+  background: white;
+  margin-bottom: 2rpx;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100% !important;
+  box-sizing: border-box;
+  text-align: inherit;
+  font-weight: normal;
+  border-radius: 0;
+  line-height: inherit;
+}
+
+.item-logo {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.item-text {
+  font-size: 26rpx;
+  margin-left: 20rpx;
+  color: rgba(0, 0, 0, .65);
+  flex: 1;
+}
+
+.item-right {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.about-us-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, .2);
+  z-index: 999999999;
+}
+
+.about-us-panel {
+  background: white;
+  padding: 60rpx 30rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 0 60rpx 20rpx rgba(118, 118, 118, .06);
+  border-radius: 30rpx;
+  width: 70%;
+  max-height: 50%;
+}
+
+.about-us-title {
+  color: black;
+  font-size: 32rpx;
+  font-weight: bold;
+  letter-spacing: 4rpx;
+}
+
+.about-us-content {
+  flex: 1;
+  font-size: 28rpx;
+  color: #767676;
+  text-indent: 2em;
+  margin-top: 40rpx;
+  line-height: 2em;
+  padding: 0 30rpx;
+  letter-spacing: 4rpx;
+  overflow-y: auto;
+}
+
+.about-us-button {
+  background: #13c2c2;
+  color: white;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+  margin-top: 40rpx;
+}

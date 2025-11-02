@@ -1,0 +1,99 @@
+<view class="container">
+  <!-- 顶部导航（支持切换选中状态） -->
+  <view class="nav-bar">
+    <view 
+      class="nav-item {{activeNav === 0 ? 'active' : ''}}" 
+      bindtap="onNavTap" 
+      data-index="0"
+    >
+      全部真题
+    </view>
+    <view 
+      class="nav-item {{activeNav === 1 ? 'active' : ''}}" 
+      bindtap="onNavTap" 
+      data-index="1"
+    >
+      历年真题
+    </view>
+  </view>
+  
+  <!-- 提示文字（仅全部真题显示） -->
+  <view class="hint-text" wx:if="{{activeNav === 0}}">
+    选择试卷分类开始练习
+  </view>
+  
+  <!-- 真题列表（卡片式布局） -->
+  <view class="paper-list">
+    <!-- 全国卷I -->
+    <view 
+      class="paper-item" 
+      bindtap="goToPaperDetail" 
+      data-paperid="national1" 
+      data-title="全国卷I"
+    >
+      <view class="paper-title">全国卷I</view>
+      <view class="paper-info">包含年份：2023-2018</view>
+      <view class="paper-count">共23套</view>
+    </view>
+    
+    <!-- 全国卷II -->
+    <view 
+      class="paper-item" 
+      bindtap="goToPaperDetail" 
+      data-paperid="national2" 
+      data-title="全国卷II"
+    >
+      <view class="paper-title">全国卷II</view>
+      <view class="paper-info">包含年份：2023-2018</view>
+      <view class="paper-count">共20套</view>
+    </view>
+    
+    <!-- 全国卷III -->
+    <view 
+      class="paper-item" 
+      bindtap="goToPaperDetail" 
+      data-paperid="national3" 
+      data-title="全国卷III"
+    >
+      <view class="paper-title">全国卷III</view>
+      <view class="paper-info">包含年份：2023-2018</view>
+      <view class="paper-count">共22套</view>
+    </view>
+    
+    <!-- 北京卷 -->
+    <view 
+      class="paper-item" 
+      bindtap="goToPaperDetail" 
+      data-paperid="beijing" 
+      data-title="北京卷"
+    >
+      <view class="paper-title">北京卷</view>
+      <view class="paper-info">包含年份：2023-2019</view>
+      <view class="paper-count">共10套</view>
+    </view>
+    
+    <!-- 上海卷 -->
+    <view 
+      class="paper-item" 
+      bindtap="goToPaperDetail" 
+      data-paperid="shanghai" 
+      data-title="上海卷"
+    >
+      <view class="paper-title">上海卷</view>
+      <view class="paper-info">包含年份：2023-2019</view>
+      <view class="paper-count">共17套</view>
+    </view>
+    
+    <!-- 浙江卷 -->
+    <view 
+      class="paper-item" 
+      bindtap="goToPaperDetail" 
+      data-paperid="zhejiang" 
+      data-title="浙江卷"
+    >
+      <view class="paper-title">浙江卷</view>
+      <view class="paper-info">包含年份：2023-2020</view>
+      <view class="paper-count">共23套</view>
+    </view>
+  </view>
+</view>

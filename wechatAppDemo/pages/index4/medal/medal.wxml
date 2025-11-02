@@ -1,0 +1,62 @@
+<!-- pages/medal/medal.wxml -->
+<view class="medal-container">
+  <!-- 顶部标题栏 -->
+  <view class="header">
+    <view class="header-title">我的勋章</view>
+  </view>
+
+  <!-- 勋章统计 -->
+  <view class="stats-section">
+    <view class="stat-item">
+      <text class="stat-number">{{totalMedals}}</text>
+      <text class="stat-label">总勋章数</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-number">{{earnedMedals}}</text>
+      <text class="stat-label">已获得</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-number">{{progress}}%</text>
+      <text class="stat-label">收集进度</text>
+    </view>
+  </view>
+
+  <!-- 勋章列表 -->
+  <view class="medal-list">
+    <view class="section-title">全部勋章</view>
+    
+    <view class="medal-grid">
+      <block wx:for="{{medalList}}" wx:key="id">
+        <view class="medal-item {{item.earned ? 'earned' : 'locked'}}" bind:tap="onMedalTap" data-medal="{{item}}">
+          <!-- 勋章图标 -->
+          <view class="medal-icon">
+            <image wx:if="{{item.earned}}" src="{{item.icon}}" mode="aspectFit"></image>
+            <image wx:else src="/images/mine_icons/medal/medal_locked.png" mode="aspectFit"></image>
+            <view wx:if="{{!item.earned}}" class="lock-icon">🔒</view>
+          </view>
+          
+          <!-- 勋章信息 -->
+          <view class="medal-info">
+            <text class="medal-name">{{item.name}}</text>
+            <text class="medal-desc">{{item.description}}</text>
+            <text class="medal-date" wx:if="{{item.earned}}">获得时间: {{item.earnedDate}}</text>
+            <text class="medal-hint" wx:else>{{item.hint}}</text>
+          </view>
+          
+          <!-- 获得状态 -->
+          <view class="medal-status">
+            <text wx:if="{{item.earned}}" class="status-earned">已获得</text>
+            <text wx:else class="status-locked">未获得</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:if="{{medalList.length === 0}}" class="empty-state">
+    <image src="/images/mien_icons/medal/empty_medal.png" class="empty-image"></image>
+    <text class="empty-text">暂无勋章，快去完成任务吧！</text>
+    <button class="empty-btn" bind:tap="goToTasks">去做任务</button>
+  </view>
+</view>

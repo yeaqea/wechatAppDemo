@@ -1,0 +1,126 @@
+<!-- pages/collection/collection.wxml -->
+<view class="star-container">
+  <!-- 顶部标题栏 -->
+  <view class="header">
+    <view class="header-title">我的收藏</view>
+    <view class="header-subtitle">已收藏 {{totalCount}} 篇文章</view>
+  </view>
+
+  <!-- 筛选标签 -->
+  <view class="filter-tabs">
+    <scroll-view class="tab-scroll" scroll-x="true">
+      <view class="tab-list">
+        <view 
+          class="tab-item {{currentTab === 'all' ? 'active' : ''}}" 
+          bind:tap="switchTab" 
+          data-tab="all"
+        >
+          全部
+        </view>
+        <view 
+          class="tab-item {{currentTab === 'unread' ? 'active' : ''}}" 
+          bind:tap="switchTab" 
+          data-tab="unread"
+        >
+          未读
+        </view>
+        <view 
+          class="tab-item {{currentTab === 'read' ? 'active' : ''}}" 
+          bind:tap="switchTab" 
+          data-tab="read"
+        >
+          已读
+        </view>
+        <block wx:for="{{categories}}" wx:key="id">
+          <view 
+            class="tab-item {{currentTab === item.id ? 'active' : ''}}" 
+            bind:tap="switchTab" 
+            data-tab="{{item.id}}"
+          >
+            {{item.name}}
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 文章列表 -->
+  <view class="article-list">
+    <block wx:for="{{filteredArticles}}" wx:key="id">
+      <view class="article-item" bind:tap="viewArticle" data-article="{{item}}">
+        <!-- 文章图片 -->
+        <view class="article-image">
+          <image src="{{item.coverImage}}" mode="aspectFill" lazy-load="true"></image>
+          <view wx:if="{{item.isRead}}" class="read-badge">已读</view>
+        </view>
+        
+        <!-- 文章内容 -->
+        <view class="article-content">
+          <view class="article-header">
+            <text class="article-title">{{item.title}}</text>
+            <view class="article-actions">
+              <view class="action-btn" catch:tap="toggleCollect" data-article="{{item}}">
+                <image src="/images/mine_icons/star/collected.svg" class="collect-icon"></image>
+              </view>
+            </view>
+          </view>
+          
+          <text class="article-desc">{{item.description}}</text>
+          
+          <view class="article-meta">
+            <view class="meta-left">
+              <text class="category-tag">{{item.categoryName}}</text>
+              <text class="read-time">{{item.readTime}}分钟前阅读</text>
+            </view>
+            <view class="meta-right">
+              <text class="collect-date">{{item.collectDate}}</text>
+            </view>
+          </view>
+          
+          <view class="article-footer">
+            <view class="stats">
+              <view class="stat">
+                <image src="/images/mine_icons/star/eye.svg" class="stat-icon"></image>
+                <text class="stat-text">{{item.viewCount}}</text>
+              </view>
+              <view class="stat">
+                <image src="/images/mine_icons/star/like.svg" class="stat-icon"></image>
+                <text class="stat-text">{{item.likeCount}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:if="{{filteredArticles.length === 0}}" class="empty-state">
+    <image src="/images/empty.png" class="empty-image"></image>
+    <text class="empty-text">
+      {{currentTab === 'all' ? '暂无收藏文章' : 
+        currentTab === 'unread' ? '暂无未读收藏' : 
+        currentTab === 'read' ? '暂无已读收藏' : '该分类暂无收藏'}}
+    </text>
+    <text class="empty-subtext">去发现一些精彩内容吧</text>
+    <button class="empty-btn" catch:tap="goToDiscover">去发现</button>
+  </view>
+
+  <!-- 编辑模式底部栏 -->
+  <view wx:if="{{isEditMode}}" class="edit-toolbar">
+    <view class="edit-actions">
+      <view class="edit-action" catch:tap="selectAll">
+        <text>{{isAllSelected ? '取消全选' : '全选'}}</text>
+      </view>
+      <view class="edit-action delete" catch:tap="batchDelete">
+        <text>删除({{selectedCount}})</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 固定编辑按钮 -->
+  <view class="floating-edit" catch:tap="toggleEditMode">
+    <image src="{{isEditMode ? '/images/mine_icons/star/done.svg' : '/images/mine_icons/star/edit.svg'}}" 
+           class="edit-icon"></image>
+  </view>
+</view>
