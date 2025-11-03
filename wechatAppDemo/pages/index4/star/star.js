@@ -15,68 +15,7 @@ Page({
       { id: 'study', name: '学习' },
       { id: 'news', name: '资讯' }
     ],
-    articles: [
-      {
-        id: 1,
-        title: '深入理解JavaScript闭包原理与实践',
-        description: '闭包是JavaScript中一个重要且常用的概念，本文将深入探讨闭包的工作原理和实际应用场景',
-        coverImage: '/images/mine_icons/star/tech1.jpg',
-        category: 'tech',
-        categoryName: '技术',
-        readTime: 8,
-        viewCount: 1245,
-        likeCount: 89,
-        isRead: false,
-        isCollected: true,
-        collectDate: '2024-01-15',
-        content: '文章内容...'
-      },
-      {
-        id: 2,
-        title: '高效学习的7个科学方法',
-        description: '基于认知心理学的研究，介绍7种被科学证明的高效学习方法',
-        coverImage: '/images/mine_icons/star/tech2.jpg',
-        category: 'study',
-        categoryName: '学习',
-        readTime: 12,
-        viewCount: 3567,
-        likeCount: 234,
-        isRead: true,
-        isCollected: true,
-        collectDate: '2024-01-12',
-        content: '文章内容...'
-      },
-      {
-        id: 3,
-        title: '2024年前端开发趋势预测',
-        description: '分析当前前端技术的发展趋势，预测2024年可能流行的技术和框架',
-        coverImage: '/images/mine_icons/star/life1.jpg',
-        category: 'tech',
-        categoryName: '技术',
-        readTime: 15,
-        viewCount: 2890,
-        likeCount: 156,
-        isRead: false,
-        isCollected: true,
-        collectDate: '2024-01-10',
-        content: '文章内容...'
-      },
-      {
-        id: 4,
-        title: '如何保持工作与生活的平衡',
-        description: '在现代快节奏的生活中，找到工作与生活的平衡点至关重要',
-        coverImage: '/images/mine_icons/star/life2.jpg',
-        category: 'life',
-        categoryName: '生活',
-        readTime: 6,
-        viewCount: 1789,
-        likeCount: 98,
-        isRead: true,
-        isCollected: true,
-        collectDate: '2024-01-08',
-        content: '文章内容...'
-      }
-    ],
+    articles: [],
     filteredArticles: []
   },
 
@@ -84,6 +23,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    // 从本地存储加载收藏的文章
+    const collectedArticles = wx.getStorageSync('collectedArticles') || [];
+    if (collectedArticles.length > 0) {
+      this.setData({
+        articles: collectedArticles
+      });
+    }
     this.filterArticles();
     this.updateTotalCount();
   },
@@ -135,7 +81,7 @@ Page({
     this.markAsRead(article.id);
     
     wx.navigateTo({
-      url: `/pages/article/detail?id=${article.id}`,
+      url: `/pages/index1/detail/detail?id=${article.id}`,
       success: () => {
         // 可以在这里添加阅读统计
         console.log('查看文章:', article.title);
@@ -333,7 +279,7 @@ Page({
   onShareAppMessage: function() {
     return {
       title: '我的文章收藏',
-      path: '/pages/collection/collection'
+      path: '/pages/index4/star/star'
     };
   }
 });

@@ -12,6 +12,15 @@
       <view class="view-count">{{article.viewCount}}</view>
     </view>
   </view>
+  
+  <!-- 收藏按钮 -->
+  <view class="collect-btn-container">
+    <button class="collect-btn {{isCollected ? 'collected' : ''}}" bindtap="toggleCollect">
+      <image src="{{isCollected ? '/images/mine_icons/star/collected.svg' : '/images/mine_icons/star/uncollected.svg'}}" class="collect-icon"></image>
+      <text>{{isCollected ? '已收藏' : '收藏'}}</text>
+    </button>
+  </view>
+  
   <view class="article-content">
     {{article.content}}
   </view>

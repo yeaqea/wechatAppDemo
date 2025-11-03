@@ -1,47 +1,80 @@
 <!-- wechatAppDemo/pages/index1/list/list.wxml -->
-<!-- 搜索栏（添加点击事件） -->
-<view class="search-bar" bindtap="goToSearch">
-  <input type="text" placeholder="搜索" readonly />
-</view>
-
-<!-- 分类&排序栏 -->
-<view class="filter-bar">
-  <view class="filter-item">
-    分类
-    <view class="arrow-down"></view>
+<view>
+  <!-- 搜索栏 -->
+  <view class="search-bar" bindtap="goToSearch">
+    <input type="text" placeholder="搜索" readonly />
   </view>
-  <view class="filter-item">
-    排序
-    <view class="arrow-down"></view>
-  </view>
-</view>
 
-<!-- 文章列表：点击跳转详情页 -->
-<view class="article-list">
-  <block wx:for="{{articles}}" wx:key="uniqueId">
-    <view class="article-item" bindtap="goToDetail" data-id="{{item.id}}">
-      <view class="article-info">
-        <view class="article-title">{{item.title}}</view>
-        <view class="article-tags">
-          <block wx:for="{{item.tags}}" wx:key="*this">
-            <view class="tag">{{item}}</view>
-          </block>
-        </view>
-        <view class="article-desc">{{item.desc}}</view>
-      </view>
-      <view class="article-thumbnail" wx:if="{{item.thumbnail}}">
-        <image src="{{item.thumbnail}}" mode="aspectFill" />
-      </view>
-      <view class="article-meta">
-        <view class="author-avatar">
-          <image src="{{item.authorAvatar}}" mode="cover" />
-        </view>
-        <view class="author-info">
-          <view class="author-name">{{item.authorName}}</view>
-          <view class="publish-time">{{item.publishTime}}</view>
-        </view>
-        <view class="view-count">{{item.viewCount}}</view>
-      </view>
+  <!-- 分类&排序栏 -->
+  <view class="filter-bar">
+    <view class="filter-item category-item" bindtap="toggleCategory">
+      分类
+      <view class="arrow-down {{showCategory ? 'arrow-up' : ''}}"></view>
     </view>
-  </block>
+    
+    <view class="filter-item sort-item" bindtap="toggleSort">
+      排序
+      <view class="arrow-down {{showSort ? 'arrow-up' : ''}}"></view>
+    </view>
+  </view>
+
+  <!-- 分类下拉菜单 -->
+  <view class="dropdown-menu category-dropdown" wx:if="{{showCategory}}">
+    <view class="dropdown-item {{selectedCategory === '' ? 'active' : ''}}" 
+          data-value="" bindtap="selectCategory">全部</view>
+    <view class="dropdown-item {{selectedCategory === '考研' ? 'active' : ''}}" 
+          data-value="考研" bindtap="selectCategory">考研</view>
+    <view class="dropdown-item {{selectedCategory === '英语' ? 'active' : ''}}" 
+          data-value="英语" bindtap="selectCategory">英语</view>
+    <view class="dropdown-item {{selectedCategory === '政治' ? 'active' : ''}}" 
+          data-value="政治" bindtap="selectCategory">政治</view>
+    <view class="dropdown-item {{selectedCategory === '自律' ? 'active' : ''}}" 
+          data-value="自律" bindtap="selectCategory">自律</view>
+  </view>
+
+  <!-- 排序下拉菜单 -->
+  <view class="dropdown-menu sort-dropdown" wx:if="{{showSort}}">
+    <view class="dropdown-item {{selectedSort === 'time' ? 'active' : ''}}" 
+          data-value="time" bindtap="selectSort">最新发布</view>
+    <view class="dropdown-item {{selectedSort === 'views' ? 'active' : ''}}" 
+          data-value="views" bindtap="selectSort">最多浏览</view>
+  </view>
+
+  <!-- 遮罩层 -->
+  <view class="mask" wx:if="{{showCategory || showSort}}" bindtap="closeDropdowns"></view>
+
+  <!-- 文章列表 -->
+  <view class="article-list">
+    <block wx:for="{{filteredArticles}}" wx:key="id">
+      <view class="article-item" bindtap="goToDetail" data-id="{{item.id}}">
+        <view class="article-info">
+          <view class="article-title">{{item.title}}</view>
+          <view class="article-tags">
+            <block wx:for="{{item.tags}}" wx:key="*this">
+              <view class="tag">{{item}}</view>
+            </block>
+          </view>
+          <view class="article-desc">{{item.desc}}</view>
+        </view>
+        <view class="article-thumbnail" wx:if="{{item.thumbnail}}">
+          <image src="{{item.thumbnail}}" mode="aspectFill" />
+        </view>
+        <view class="article-meta">
+          <view class="author-avatar">
+            <image src="{{item.authorAvatar}}" mode="cover" />
+          </view>
+          <view class="author-info">
+            <view class="author-name">{{item.authorName}}</view>
+            <view class="publish-time">{{item.publishTime}}</view>
+          </view>
+          <view class="view-count">浏览 {{item.viewCount}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 空状态提示 -->
+  <view class="empty-state" wx:if="{{filteredArticles.length === 0}}">
+    <text class="empty-text">暂无相关内容</text>
+  </view>
 </view>

@@ -1,0 +1,66 @@
+<!-- pages/index/trains/practice/practice.wxml -->
+<view class="practice-container">
+  <!-- 顶部进度条 -->
+  <view class="progress-header">
+    <view class="progress-info">
+      <text class="progress-text">题目 {{currentIndex + 1}}/{{questions.length}}</text>
+      <text class="chapter-text">{{currentQuestion.chapter}}</text>
+    </view>
+    <view class="progress-bar">
+      <view class="progress-fill" style="width: {{((currentIndex + 1)/questions.length)*100}}"></view>
+    </view>
+  </view>
+
+  <!-- 题目区域 -->
+  <view class="question-area">
+    <view class="question-content">
+      <text class="question-text">{{currentQuestion.content}}</text>
+    </view>
+    
+    <!-- 选项区域 - 修复语法错误 -->
+    <view class="options-area">
+      <view class="option-item {{item.selected ? 'selected' : ''}} {{showAnswer && item.correct ? 'correct' : ''}} {{showAnswer && item.selected && !item.correct ? 'wrong' : ''}}"
+            wx:for="{{currentQuestion.options}}" 
+            wx:key="id"
+            bindtap="selectOption"
+            data-index="{{index}}">
+        <view class="option-label">{{item.label}}</view>
+        <view class="option-text">{{item.text}}</view>
+        <view class="option-status">
+          <text class="icon-correct" wx:if="{{showAnswer && item.correct}}">✓</text>
+          <text class="icon-wrong" wx:if="{{showAnswer && item.selected && !item.correct}}">✗</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作按钮 -->
+  <view class="practice-actions">
+    <view class="btn submit-btn {{currentAnswer !== null ? 'active' : ''}}" 
+          bindtap="submitAnswer"
+          wx:if="{{!showAnswer}}">
+      提交答案
+    </view>
+    
+    <view class="btn next-btn" 
+          bindtap="nextQuestion"
+          wx:if="{{showAnswer}}">
+      {{currentIndex + 1 < questions.length ? '下一题' : '查看结果'}}
+    </view>
+  </view>
+
+  <!-- 答案反馈 -->
+  <view class="answer-feedback {{showAnswer ? 'show' : ''}}">
+    <view class="feedback-content">
+      <view class="feedback-icon {{isCorrect ? 'correct' : 'wrong'}}">
+        <text>{{isCorrect ? '✓' : '✗'}}</text>
+      </view>
+      <view class="feedback-text">
+        <text class="feedback-title">{{isCorrect ? '回答正确！' : '回答错误'}}</text>
+        <text class="feedback-explanation" wx:if="{{currentQuestion.explanation}}">
+          解析：{{currentQuestion.explanation}}
+        </text>
+      </view>
+    </view>
+  </view>
+</view>

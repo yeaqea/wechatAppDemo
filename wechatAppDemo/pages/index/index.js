@@ -73,7 +73,7 @@ Page({
     const page = e.currentTarget.dataset.page
     if (page ==='trains') {
       wx.navigateTo({
-        url: '/pages/index/trains/trains'
+        url: '/pages/index/trains/practice/practice'
       })
     }
     else if (page ==='exercise') {

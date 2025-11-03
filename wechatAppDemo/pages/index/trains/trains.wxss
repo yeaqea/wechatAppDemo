@@ -1,201 +1,259 @@
+/* index.wxss */
 .container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 30rpx;
+  background: #f5f7fa;
+  padding-bottom: 100rpx;
 }
 
 /* 头部样式 */
 .header {
-  text-align: center;
-  margin-bottom: 50rpx;
-  padding-top: 40rpx;
-}
-
-.header-title {
-  font-size: 48rpx;
-  font-weight: bold;
+  background: linear-gradient(135deg, #1a6dff 0%, #0d4cd3 100%);
   color: white;
-  margin-bottom: 16rpx;
+  padding: 30rpx;
+  border-radius: 0 0 30rpx 30rpx;
 }
 
-.header-subtitle {
-  font-size: 28rpx;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-/* 训练列表样式 */
-.training-list {
-  background: white;
-  border-radius: 20rpx;
-  overflow: hidden;
-  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.1);
-}
-
-.training-item {
+.user-info {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 40rpx 30rpx;
-  border-bottom: 1rpx solid #f0f0f0;
-  transition: all 0.3s ease;
+  margin-bottom: 40rpx;
 }
 
-
-
-.training-item:last-child {
-  border-bottom: none;
-}
-
-.training-item:active {
-  background-color: #f8f9fa;
-}
-
-.item-left {
-  display: flex;
-  align-items: center;
-  flex: 1;
-}
-
-/* 复选框样式 */
-.checkbox {
-  width: 40rpx;
-  height: 40rpx;
-  border: 2rpx solid #ddd;
-  border-radius: 8rpx;
-  margin-right: 24rpx;
+.user-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  font-size: 40rpx;
 }
 
-.checkbox.checked {
-  background: #1a6dff;
-  border-color: #1a6dff;
-}
-
-.checkmark {
-  color: white;
-  font-size: 24rpx;
-  font-weight: bold;
-}
-
-/* 内容样式 */
-.item-content {
-  flex: 1;
-}
-
-.item-title {
-  font-size: 32rpx;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 16rpx;
-}
-
-.item-info {
-  display: flex;
-  gap: 30rpx;
-}
-
-.info-text {
-  font-size: 24rpx;
-  color: #666;
-}
-
-/* 右侧进度和按钮 */
-.item-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 16rpx;
-}
-
-.progress-info {
-  text-align: right;
-}
-
-.progress-text {
-  font-size: 24rpx;
-  color: #666;
-  margin-bottom: 8rpx;
-  display: block;
-}
-
-.progress-bar {
-  width: 200rpx;
-  height: 8rpx;
-  background: #f0f0f0;
-  border-radius: 4rpx;
-  overflow: hidden;
-}
-
-.progress-inner {
+.user-avatar image {
+  width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, #1a6dff, #4dabf7);
-  border-radius: 4rpx;
-  transition: width 0.3s ease;
+  border-radius: 50%;
 }
 
-.enter-btn {
-  padding: 12rpx 24rpx;
-  background: #1a6dff;
-  color: white;
-  border-radius: 20rpx;
-  font-size: 24rpx;
+.user-name {
+  flex: 1;
+  margin-left: 20rpx;
+  font-size: 36rpx;
   font-weight: 500;
 }
 
-/* 底部操作栏 */
-.bottom-actions {
+.user-points {
+  font-size: 28rpx;
+  opacity: 0.9;
+}
+
+.points-icon {
+  margin-right: 10rpx;
+}
+
+/* 统计卡片 */
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 24rpx;
+  padding: 30rpx;
+  width: 48%;
+  text-align: center;
+  backdrop-filter: blur(20rpx);
+}
+
+.stat-value {
+  font-size: 56rpx;
+  font-weight: bold;
+  margin: 10rpx 0;
+}
+
+.stat-label {
+  font-size: 28rpx;
+  opacity: 0.9;
+}
+
+.stat-rank {
+  font-size: 26rpx;
+  margin-top: 10rpx;
+  opacity: 0.8;
+}
+
+/* 主要内容 */
+.main-content {
+  padding: 40rpx 30rpx;
+}
+
+.section-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  margin: 40rpx 0 30rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.more-link {
+  font-size: 28rpx;
+  color: #1a6dff;
+  font-weight: normal;
+}
+
+/* 网格菜单 */
+.grid-menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24rpx;
+  margin-bottom: 40rpx;
+}
+
+.menu-item {
+  background: white;
+  border-radius: 24rpx;
+  padding: 36rpx 20rpx;
+  text-align: center;
+  box-shadow: 0 6rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.menu-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16rpx;
+  font-size: 36rpx;
+  color: white;
+}
+
+.menu-text {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+/* 图标颜色 */
+.icon-1 { background: #ff6b6b; }
+.icon-2 { background: #4ecdc4; }
+.icon-3 { background: #45b7d1; }
+.icon-4 { background: #ffa502; }
+.icon-5 { background: #a55eea; }
+.icon-6 { background: #26de81; }
+
+/* 考试区域 */
+.exam-section {
+  background: white;
+  border-radius: 24rpx;
+  padding: 30rpx;
+  margin-top: 20rpx;
+  box-shadow: 0 6rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.exam-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f1f1f1;
+}
+
+.exam-item:last-child {
+  border-bottom: none;
+}
+
+.exam-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 20rpx;
+  background: #e3f2fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a6dff;
+  margin-right: 24rpx;
+  font-size: 36rpx;
+}
+
+.exam-info {
+  flex: 1;
+}
+
+.exam-title {
+  font-weight: 500;
+  margin-bottom: 8rpx;
+  font-size: 32rpx;
+}
+
+.exam-desc {
+  font-size: 24rpx;
+  color: #888;
+}
+
+.exam-status {
+  font-size: 24rpx;
+  color: #1a6dff;
+  font-weight: 500;
+}
+
+/* 进度指示器 */
+.progress-indicator {
+  display: flex;
+  justify-content: center;
+  margin: 40rpx 0;
+}
+
+.progress-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: #ddd;
+  margin: 0 8rpx;
+}
+
+.progress-dot.active {
+  background: #1a6dff;
+  width: 40rpx;
+  border-radius: 8rpx;
+}
+
+/* 底部导航 */
+.bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   background: white;
-  padding: 30rpx;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  padding: 20rpx 0;
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+  border-top: 1rpx solid #f0f0f0;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.1);
+  color: #888;
+  font-size: 24rpx;
 }
 
-.select-all {
-  display: flex;
-  align-items: center;
-  gap: 16rpx;
+.nav-item.active {
+  color: #1a6dff;
 }
 
-.select-all-text {
-  font-size: 28rpx;
-  color: #333;
-  font-weight: 500;
+.nav-icon {
+  font-size: 40rpx;
+  margin-bottom: 8rpx;
 }
 
-.action-buttons {
-  display: flex;
-  gap: 20rpx;
-}
-
-.btn {
-  padding: 20rpx 40rpx;
-  border-radius: 12rpx;
-  font-size: 28rpx;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.btn.secondary {
-  background: #f8f9fa;
-  color: #666;
-  border: 1rpx solid #e9ecef;
-}
-
-.btn.primary {
-  background: #1a6dff;
-  color: white;
-}
-
-.btn:active {
-  transform: scale(0.98);
-  opacity: 0.9;
+.nav-text {
+  font-size: 22rpx;
 }

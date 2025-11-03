@@ -5,25 +5,46 @@
       <icon type="left" size="20" color="#333"></icon>
     </view>
     <view class="nav-title">我的收藏</view>
+    <view class="edit-btn" bindtap="toggleEdit">
+      <text>{{isEditing ? '完成' : '编辑'}}</text>
+    </view>
   </view>
 
-  <!-- 搜索栏（点击跳转搜索页） -->
+  <!-- 搜索栏 -->
   <view class="search-bar" bindtap="goToSearchPage">
     <icon class="search-icon" type="search" size="16"></icon>
     <text class="search-placeholder">搜索收藏题目...</text>
+  </view>
+
+  <!-- 编辑模式下的操作栏 -->
+  <view class="edit-toolbar" wx:if="{{isEditing}}">
+    <view class="toolbar-item" bindtap="toggleSelectAll">
+      <text>{{selectedItems.length === favoritesList.length ? '取消全选' : '全选'}}</text>
+    </view>
+    <view class="toolbar-item" bindtap="deleteSelected">
+      <text>删除</text>
+    </view>
   </view>
 
   <!-- 收藏列表 -->
   <view class="favorites-list">
     <!-- 空状态 -->
     <view wx:if="{{favoritesList.length === 0}}" class="empty-state">
-      <icon type="star-o" size="50" color="#ddd"></icon>
+      <image src="/images/empty.png" class="empty-image"></image>
       <text class="empty-text">暂无收藏题目</text>
     </view>
 
-    <!-- 收藏项（修复标签格式：属性写在同一行，无非法字符） -->
+    <!-- 收藏项 -->
     <view wx:else>
-      <view wx:for="{{favoritesList}}" wx:key="id" class="favorite-item">
+      <view wx:for="{{favoritesList}}" wx:key="id" wx:index="index" class="favorite-item">
+        <view 
+          wx:if="{{isEditing}}" 
+          class="custom-checkbox {{item.isSelected ? 'checked' : ''}}"
+          bindtap="toggleSelect"
+          data-index="{{index}}"
+        >
+          <view wx:if="{{item.isSelected}}" class="checkmark">✓</view>
+        </view>
         <view class="question-content">{{item.question}}</view>
         <view class="add-time">{{item.addTime}}</view>
       </view>

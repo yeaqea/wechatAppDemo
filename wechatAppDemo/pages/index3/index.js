@@ -23,22 +23,55 @@ Page({
       rank: '-', // 初始化为 '-'，待更新
       questionNum: 50,
       accuracy: '88%'
+    },
+    username: '张三',
+    signature: '',
+    avatar: '/images/mine_icons/default_photo.png',
+  },
+
+  loadUserInfo: function() {
+    const app = getApp();
+    const userInfo = app.globalData.userInfo;
+    
+    if (userInfo) {
+      this.setData({
+        username: userInfo.username || '张三',
+        signature: userInfo.signature || '',
+        avatar: userInfo.avatar || '/images/mine_icons/default_photo.png'
+      });
     }
   },
 
+  updateUserInfo: function(userData) {
+    this.setData({
+      username: userData.username,
+      signature: userData.signature,
+      avatar: userData.avatar
+    });
+  },
+  
   onLoad() {
+    const app = getApp()
+    this.loadUserInfo();
+  },
+
+  onShow() {
+    this.loadUserInfo();
     this.sortRankList();
   },
 
   sortRankList() {
     const list = this.data.rankList.map(item => ({ ...item }));
-
+    const index = list.findIndex(item => item.userId === 'myself');
+    if (index !== -1) {
+      const removedItem = list.splice(index, 1);
+    }
     // 插入“我”的数据
     const myUser = {
       userId: 'myself',
       name: '我',
       score: this.data.myScore.score,
-      avatar: '/images/empty.png',
+      avatar: this.data.avatar,
       rank: 0
     };
     list.push(myUser);

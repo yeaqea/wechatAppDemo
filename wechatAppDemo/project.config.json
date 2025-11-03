@@ -1,41 +1,22 @@
 {
-  "compileType": "miniprogram",
-  "libVersion": "3.11.0",
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "projectname": "dya4",
   "setting": {
-    "coverView": true,
-    "es6": true,
-    "postcss": true,
-    "minified": true,
-    "enhance": true,
-    "showShadowRootInWxmlPanel": true,
-    "packNpmRelationList": [],
+    "compileHotReLoad": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    },
-    "compileWorklet": false,
-    "uglifyFileName": false,
-    "uploadWithSourceMap": true,
-    "packNpmManually": false,
-    "minifyWXSS": true,
-    "minifyWXML": true,
-    "localPlugins": false,
-    "condition": false,
-    "swc": false,
-    "disableSWC": true,
-    "disableUseStrict": false,
-    "useCompilerPlugins": false
+    }
   },
-  "condition": {},
+  "appid": "wx9ac4afa2a30f31a2",
+  "compileType": "miniprogram",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
   "editorSetting": {
     "tabIndent": "auto",
     "tabSize": 2
-  },
-  "appid": "wx68e3c9d87a7a9145",
-  "simulatorPluginLibVersion": {}
+  }
 }

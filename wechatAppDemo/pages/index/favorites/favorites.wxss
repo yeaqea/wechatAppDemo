@@ -29,7 +29,13 @@
   color: #333;
 }
 
-/* 搜索栏（可点击样式） */
+.edit-btn {
+  font-size: 15px;
+  color: #1a6dff;
+  padding: 0 10px;
+}
+
+/* 搜索栏 */
 .search-bar {
   display: flex;
   align-items: center;
@@ -53,6 +59,30 @@
 .search-placeholder {
   font-size: 28rpx;
   color: #999;
+}
+
+/* 编辑工具栏 */
+.edit-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 15rpx 20rpx;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.toolbar-item {
+  padding: 10rpx 20rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #1a6dff;
+}
+
+.empty-image {
+  width: 200rpx;      /* 可根据需要调整 */
+  height: 200rpx;
+  margin-bottom: 30rpx;
+  opacity: 0.6;       /* 可选：增加透明度更柔和 */
 }
 
 /* 收藏列表 */
@@ -79,13 +109,40 @@
   padding: 25rpx;
   margin-bottom: 15rpx;
   box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+}
+
+/* 自定义复选框 */
+.custom-checkbox {
+  width: 36rpx;
+  height: 36rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 6rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20rpx;
+  transition: all 0.2s;
+}
+
+.custom-checkbox.checked {
+  background-color: #1a6dff;
+  border-color: #1a6dff;
+}
+
+.checkmark {
+  color: white;
+  font-size: 24rpx;
+  font-weight: bold;
 }
 
 .question-content {
+  flex: 1;
   font-size: 28rpx;
   color: #333;
   line-height: 1.6;
-  margin-bottom: 15rpx;
+  margin-left: 20rpx;
 }
 
 .add-time {
