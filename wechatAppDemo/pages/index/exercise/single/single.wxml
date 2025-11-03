@@ -8,13 +8,13 @@
     </view>
     <view class="header-right">
       <button class="icon-btn" bindtap="toggleFontSize">
-        <image src="/images/font-size.png" mode="widthFix" class="icon-img" />
+        <image src="/images/exercise_icons/font-size.png" mode="widthFix" class="icon-img" />
       </button>
       <button class="icon-btn" bindtap="toggleNightMode">
-        <image src="{{isNightMode ? '/images/light.png' : '/images/night.png'}}" mode="widthFix" class="icon-img" />
+        <image src="{{isNightMode ? '/images/exercise_icons/light.png' : '/images/exercise_icons/night.png'}}" mode="widthFix" class="icon-img" />
       </button>
       <button class="icon-btn" bindtap="collectQuestion">
-        <image src="{{currentQuestion.isCollected ? '/images/collected.png' : '/images/collect.png'}}" mode="widthFix" class="icon-img" />
+        <image src="{{currentQuestion.isCollected ? '/images/exercise_icons/collected.png' : '/images/exercise_icons/collect.png'}}" mode="widthFix" class="icon-img" />
       </button>
     </view>
   </view>
@@ -30,7 +30,7 @@
     
     <!-- 选项区域 -->
     <view class="options-container">
-      <block wx:for="{{currentQuestion.options}}" wx:key="index">
+      <block wx:for="{{currentQuestion.options}}" wx:key="index" wx:index="index">
         <view 
           class="option-item {{selectedIndex === index ? 'selected' : ''}} {{isNightMode ? 'night-option' : ''}}"
           bindtap="selectOption"
@@ -55,6 +55,9 @@
       </view>
       <view class="feedback-text {{isCorrect ? 'correct-text' : 'error-text'}}" style="font-size: {{fontSize}}rpx">
         {{isCorrect ? '回答正确！' : '回答错误'}}
+      </view>
+      <view class="correct-answer" style="font-size: {{fontSize}}rpx">
+        <text class="correct-label">正确答案：</text>{{correctAnswerText}}
       </view>
       <view class="analysis-text"  wx:if="{{currentQuestion.analysis}}" style="font-size: {{fontSize}}rpx">
         <text class="analysis-label" style="font-size: {{fontSize}}rpx">解析：</text>{{currentQuestion.analysis}}

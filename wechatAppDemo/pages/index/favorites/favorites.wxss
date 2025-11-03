@@ -113,6 +113,10 @@
   align-items: center;
 }
 
+.favorite-item.editable {
+  padding-left: 10rpx;
+}
+
 /* 自定义复选框 */
 .custom-checkbox {
   width: 36rpx;
@@ -131,6 +135,15 @@
   border-color: #1a6dff;
 }
 
+.delete-btn {
+  background-color: #ff4d4f;
+  color: white !important;
+}
+
+.delete-text {
+  color: white !important;
+}
+
 .checkmark {
   color: white;
   font-size: 24rpx;
@@ -143,6 +156,13 @@
   color: #333;
   line-height: 1.6;
   margin-left: 20rpx;
+}
+
+.question-text {
+  font-weight: 500;
+  color: #333;
+  display: block;
+  margin-bottom: 8rpx;
 }
 
 .add-time {

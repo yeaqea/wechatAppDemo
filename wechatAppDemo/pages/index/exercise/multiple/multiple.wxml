@@ -1,5 +1,5 @@
-<!-- pages/index/exercise/single/single.wxml -->
-<view class="container">
+<!-- pages/index/exercise/multiple/multiple.wxml -->
+<view class="container {{isNightMode ? 'night-container' : ''}}">
   <!-- 顶部导航栏 -->
   <view class="header">
     <view class="header-left">
@@ -8,13 +8,13 @@
     </view>
     <view class="header-right">
       <button class="icon-btn" bindtap="toggleFontSize">
-        <image src="/images/font-size.png" mode="widthFix" class="icon-img" />
+        <image src="/images/exercise_icons/font-size.png" mode="widthFix" class="icon-img" />
       </button>
       <button class="icon-btn" bindtap="toggleNightMode">
-        <image src="{{isNightMode ? '/images/light.png' : '/images/night.png'}}" mode="widthFix" class="icon-img" />
+        <image src="{{isNightMode ? '/images/exercise_icons/light.png' : '/images/exercise_icons/night.png'}}" mode="widthFix" class="icon-img" />
       </button>
       <button class="icon-btn" bindtap="collectQuestion">
-        <image src="{{isCollected ? '/images/collected.png' : '/images/collect.png'}}" mode="widthFix" class="icon-img" />
+        <image src="{{currentQuestion.isCollected ? '/images/exercise_icons/collected.png' : '/images/exercise_icons/collect.png'}}" mode="widthFix" class="icon-img" />
       </button>
     </view>
   </view>
@@ -30,16 +30,16 @@
     
     <!-- 选项区域 -->
     <view class="options-container">
-      <block wx:for="{{currentQuestion.options}}" wx:key="index">
+      <block wx:for="{{currentQuestion.options}}" wx:key="index" wx:index="index">
         <view 
-          class="option-item {{selectedIndex === index ? 'selected' : ''}} {{isNightMode ? 'night-option' : ''}}"
-          bindtap="selectOption"
+          class="option-item {{optionSelectedStatus[index] ? 'selected' : ''}} {{isNightMode ? 'night-option' : ''}}"
+          bindtap="toggleOption"
           data-index="{{index}}"
         >
           <view class="option-label">
             {{String.fromCharCode(65 + index)}}
             <!-- 选中标志 -->
-            <view class="selected-marker" wx:if="{{selectedIndex === index}}">✓</view>
+            <view class="selected-marker" wx:if="{{optionSelectedStatus[index]}}">✓</view>
           </view>
           <view class="option-text" style="font-size: {{fontSize - 10}}rpx;">
             {{item}}
@@ -55,6 +55,10 @@
       </view>
       <view class="feedback-text {{isCorrect ? 'correct-text' : 'error-text'}}" style="font-size: {{fontSize}}rpx">
         {{isCorrect ? '回答正确！' : '回答错误'}}
+      </view>
+      <!-- 新增：正确答案显示 -->
+      <view class="correct-answer" style="font-size: {{fontSize}}rpx">
+        <text class="correct-label">正确答案：</text>{{correctAnswerText}}
       </view>
       <view class="analysis-text"  wx:if="{{currentQuestion.analysis}}" style="font-size: {{fontSize}}rpx">
         <text class="analysis-label" style="font-size: {{fontSize}}rpx">解析：</text>{{currentQuestion.analysis}}
@@ -73,9 +77,9 @@
       上一题
     </button>
     <button 
-      class="operate-btn submit-btn {{selectedIndex === -1 ? 'disabled' : ''}}"
+      class="operate-btn submit-btn {{selectedIndexes.length === 0 ? 'disabled' : ''}}"
       bindtap="{{isSubmitted ? 'nextQuestion' : 'submitAnswer'}}"
-      disabled="{{selectedIndex === -1 && !isSubmitted}}"
+      disabled="{{selectedIndexes.length === 0 && !isSubmitted}}"
     >
       {{isSubmitted ? '下一题' : (currentIndex === questionList.length - 1 ? '交卷' : '提交答案')}}
     </button>

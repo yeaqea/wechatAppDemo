@@ -1,9 +1,14 @@
-/* pages/index/exercise/single/single.wxss */
+/* pages/index/exercise/multiple/multiple.wxss */
 /* 基础容器样式 */
 .container {
   min-height: 100vh;
-  background-color: #F5F7FA;
+  background-color: #F5F7FA; /* 默认浅色背景 */
   padding-bottom: 120rpx;
+}
+
+/* 夜间模式容器背景 */
+.night-container {
+  background-color: #161616; /* 深色背景 */
 }
 
 /* 顶部导航栏 */
@@ -226,6 +231,31 @@
 
 .feedback-text.error-text {
   color: #F44336;
+}
+
+/* 新增：正确答案样式 */
+.correct-answer {
+  margin-top: 16rpx;
+  padding: 12rpx 16rpx;
+  background-color: #e6f7ff;
+  border-radius: 8rpx;
+  color: #1890ff;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.night-mode .correct-answer {
+  background-color: #111b2d;
+  color: #4da3ff;
+}
+
+.correct-label {
+  color: #096dd9;
+  font-weight: bold;
+}
+
+.night-mode .correct-label {
+  color: #69b1ff;
 }
 
 .analysis-text {

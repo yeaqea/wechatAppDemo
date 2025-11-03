@@ -19,7 +19,7 @@
   <!-- 编辑模式下的操作栏 -->
   <view class="edit-toolbar" wx:if="{{isEditing}}">
     <view class="toolbar-item" bindtap="toggleSelectAll">
-      <text>{{selectedItems.length === favoritesList.length ? '取消全选' : '全选'}}</text>
+      <text>{{(favoritesList.length != 0 && selectedItems.length === favoritesList.length)? '取消全选' : '全选'}}</text>
     </view>
     <view class="toolbar-item" bindtap="deleteSelected">
       <text>删除</text>
@@ -36,7 +36,7 @@
 
     <!-- 收藏项 -->
     <view wx:else>
-      <view wx:for="{{favoritesList}}" wx:key="id" wx:index="index" class="favorite-item">
+      <view wx:for="{{favoritesList}}" wx:key="id" wx:index="index" class="favorite-item {{isEditing ? 'editable' : ''}}">
         <view 
           wx:if="{{isEditing}}" 
           class="custom-checkbox {{item.isSelected ? 'checked' : ''}}"

@@ -26,7 +26,7 @@ Page({
       selectedType: type
     });
 
-    // ✅ 跳转到对应子页面
+    // 跳转到对应子页面
     wx.navigateTo({
       url: `/pages/index/exercise/${type}/${type}`
     });
